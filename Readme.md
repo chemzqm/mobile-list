@@ -5,6 +5,8 @@
 
 Full featured list build for mobile first, while design ignorant.
 
+Basic works, need more examples and test
+
 ## Features
 
 * Optional [iscroll](https://github.com/chemzqm/iscroll), [pull-to-refresh](https://github.com/chemzqm/pull-to-refresh) and [more](https://github.com/chemzqm/more)
@@ -23,10 +25,10 @@ Full featured list build for mobile first, while design ignorant.
 
 ## Events
 
-* `add` emit with model when new data rendered
-* `remove` emit with model when data remove
-* `sort` emit with sort params when sort method called
-* `filter` emit with filter and sort params when filter method called
+* `sort` emit with params when remote sort needed (including `sortField` `sortDirection`)
+* `filter` emit with params when remote filter needed (including `filterField` `filterValud`)
+* `page` emit with params when remote paging needed (including `curpage`)
+* `remove` emit just before this component removed
 
 ## API
 
@@ -35,7 +37,8 @@ Full featured list build for mobile first, while design ignorant.
 * `template` template string or element for repeat render
 * `scrollable` the scrollable element
 * `option` optional option for [list-render](https://github.com/chemzqm/list-render)
-* `option.selector` selector for parentNode of repeat template, default `ul`
+* `option.parentSelector` selector for parentNode of repeat template, default `ul`
+* `option.moreCount` limit how many more items to render with `.more(n)` method when last item visible on scrollable, default 10
 * `option.delegate` delegate object for [reactive](https://github.com/chemzqm/reactive-lite)
 * `option.bindings` bindings object for [reactive](https://github.com/chemzqm/reactive-lite)
 * `option.filters` filters object for [reactive](https://github.com/chemzqm/reactive-lite)
@@ -51,8 +54,9 @@ Use iscroll for smooth scrolling, set `option.handlebar` to true if your want ha
 
 ### .pullToRefresh([option], callback)
 
-* `options` is [pull-to-refresh](https://github.com/chemzqm/pull-to-refresh) options, which contains texts
+* `options` is [pull-to-refresh](https://github.com/chemzqm/pull-to-refresh) options, which may have texts or/and template
 * `callback` should return a promise which resolve an array of data(or reject error) for render
+* `callback` is called with additional param `pullTimestamp` which contains time stamp of latest succeed pull.
 
 ### .useMore(callback)
 
@@ -60,14 +64,14 @@ Use [more](https://github.com/chemzqm/more) for loading more data,
 
 callback should return promise which resolve an array of data(or reject error) for render
 
-### .bind(selector, event, handler)
+### .bind(type, selector, handler)
 
-Delegate `event` to `selector` with event `handler`,
-handler is called with event and a relative model
+Delegate event `type` to `selector` with `handler`,
+handler is called with event and a reactive model
 
 ### .local()
 
-Make list works on local model, which means sort and filter happens locally
+Make list works on local model, which means sort, filter and paging  only happens locally
 
 ### .sort(field, dir, [method])
 
@@ -76,6 +80,10 @@ Sort the data by field, direction or method, when it's remote mode(default mode)
 ### .filter(field, val|function)
 
 Filter the data by field, val or function, when it's remote mode(default mode), emit event only
+
+### .refresh()
+
+Let pull-to-refresh to refresh more data
 
 ### .remove()
 

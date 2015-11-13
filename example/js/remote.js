@@ -7,6 +7,7 @@ var USERS = ALL_DATA.slice(0, 30)
 var PREPEND_USERS = ALL_DATA.slice(30, 60)
 
 var scrollable = document.querySelector('.scrollable')
+
 function setCount() {
   var el = document.getElementById('count')
   var ul = scrollable.querySelector('ul')
@@ -24,28 +25,3 @@ var list = new List(template, scrollable, {
   moreCount: 8,
   limit: 15
 })
-list.iscroll({handlebar: true})
-
-var curr = 0
-list.pullToRefresh(function () {
-  return new Promise(function (resolve) {
-    var users = PREPEND_USERS.slice(curr, curr + 5)
-    setTimeout(function () {
-      curr = curr + 5
-      resolve(users)
-    }, 1000)
-  })
-})
-
-list.useMore(function (params) {
-  return new Promise(function (resolve) {
-    var total = params.total
-    var users = ALL_DATA.slice(total, total + 10)
-    setTimeout(function () {
-      resolve(users)
-    }, 1000)
-  })
-})
-list.setData(USERS)
-setCount()
-list.on('change', setCount)

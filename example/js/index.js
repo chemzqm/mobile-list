@@ -7,6 +7,7 @@ var USERS = ALL_DATA.slice(0, 30)
 var PREPEND_USERS = ALL_DATA.slice(30, 60)
 
 var scrollable = document.querySelector('.scrollable')
+
 function setCount() {
   var el = document.getElementById('count')
   var ul = scrollable.querySelector('ul')
@@ -24,6 +25,7 @@ var list = new List(template, scrollable, {
   moreCount: 8,
   limit: 15
 })
+
 list.iscroll({handlebar: true})
 
 var curr = 0

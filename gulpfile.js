@@ -7,26 +7,39 @@ var gulp = require('gulp')
 var inject = require('connect-livereload')()
 var path = require('path')
 var myConfig = {
-  entry: './example/index.js',
+  entry: {
+    index: './example/js/index.js',
+    local: './example/js/local.js',
+    remote: './example/js/remote.js'
+  },
   output: {
-    path: 'example',
-    filename: 'bundle.js'
+    path: path.join('example', 'build'),
+    filename: '[name].bundle.js',
+    chunkFilename: '[id].chunk.js'
   },
   module: {
     loaders: [
       {test: /\.css$/, loader: 'style!css'},
+      {test: /\.png$/, loader: 'url-loader?mimetype=image/png'},
+      {test: /\.json$/, loader: 'json' },
       {test: /\.html$/, loader: 'html'}
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      filename: 'common.js'
+    })
+  ]
 }
 // for debugging
 myConfig.devtool = 'sourcemap'
 myConfig.debug = true
 
 var paths = {
-  scripts: ['index.js', 'example/index.js'],
+  scripts: ['index.js', 'example/js/*.js'],
   // file list for watching
-  asserts: ['example/index.js', 'exmaple/*.css', 'example/index.html']
+  asserts: ['exmaple/*.css', 'example/index.html']
 }
 
 gulp.task('default', ['build-dev'])
