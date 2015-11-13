@@ -7,9 +7,7 @@ var ListRender = require('list-render')
 var More = require('more')
 var Ptr = require('pull-to-refresh')
 var throttle = require('throttleit')
-var computedStyle = require('computed-style')
 var event = require('event')
-
 
 /**
  * List constructor
@@ -32,6 +30,7 @@ function List(template, scrollable, option) {
   this.events = events(parentNode, this.handlers)
   this._onscroll = this.onscroll.bind(this)
   event.bind(scrollable, 'scroll', this._onscroll)
+  this.total = 0
 }
 
 inherits(List, ListRender)
@@ -54,13 +53,16 @@ List.prototype.iscroll = function (opt) {
  * @api public
  */
 List.prototype.onscroll = throttle(function () {
-  if (this.limit === Infinity || this.nomore === true) return
+  if (this.limit === Infinity) return
   var last = this.parentNode.lastElementChild
+  if (!last) return
+  var b
   do {
-    if (computedStyle(last, 'display') !== 'none') break
+    // hidden element has 0 bottom
+    b = last.getBoundingClientRect().bottom
+    if (b) break
     last = last.previousElementSibling
   } while(last)
-  var b = last.getBoundingClientRect().bottom
   var sb
   if (this.scrollable === 'window') {
     sb = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
@@ -68,8 +70,7 @@ List.prototype.onscroll = throttle(function () {
     sb = this.scrollable.getBoundingClientRect().bottom
   }
   if (b - sb < 10) {
-    var has = this.more(this.moreCount || 10)
-    if (has === false) this.nomore = true
+    this.more(this.moreCount || 10)
   }
 } ,100)
 
@@ -132,6 +133,7 @@ List.prototype.useMore = function (cb) {
   this._more.delta = 100
 }
 
+
 /**
  * Override setData, add pullTimestamp
  *
@@ -149,12 +151,28 @@ List.prototype.setData = function () {
  */
 List.prototype.onchange = function () {
   var self = this
+  if (this._local) {
+    var list = this.filtered || this.data
+    this.total = list.length
+  }
   this.emit('change')
   if (this._iscroll) {
     setImmediate(function () {
       self._iscroll.refresh()
     })
   }
+}
+
+/**
+ * Set the total to `count`
+ * Used for remote mode only
+ *
+ * @param  {Number}  n
+ * @api public
+ */
+List.prototype.setTotal = function (count) {
+  if (this._local) throw new Error('setTotal expect to work at remote mode')
+  this.total = count
 }
 
 /**
@@ -175,7 +193,7 @@ List.prototype.bind = function (type, selector, handler) {
     var el = e.delegateTarget
     var model = self.findModel(el)
     var a = [e, model].concat(args)
-    handler.apply(el, a)
+    handler.apply(e.target, a)
   }
   this.events.bind(name, name)
 }
@@ -189,6 +207,7 @@ List.prototype.bind = function (type, selector, handler) {
  * @api public
  */
 List.prototype.sort = function (field, dir, method) {
+  dir = parseInt(dir, 10)
   if (this._local) {
     this.sortData(field, dir, method)
   } else {
@@ -207,8 +226,10 @@ List.prototype.sort = function (field, dir, method) {
  * @api public
  */
 List.prototype.filter = function (field, val) {
+  this.scrollable.scrollTop = 0
   if (this._local) {
     this.filterData(field, val)
+    var list = this.filtered || this.data
   } else {
     var params = this.params
     if (!field || val === '' || val == null) {
@@ -224,6 +245,12 @@ List.prototype.filter = function (field, val) {
   }
 }
 
+/**
+ * Select page `n`
+ *
+ * @param  {Element}  n
+ * @api public
+ */
 List.prototype.select = function (n) {
   if (this._local) {
     ListRender.prototype.select.apply(this, arguments)
