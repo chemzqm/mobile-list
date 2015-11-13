@@ -6,6 +6,7 @@
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1"/>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="common.css" type="text/css" media="all" />
   <style>
     body {
       font: 500 14px/1.6 "Helvetica Neue", Helvetica, sans-serif;
@@ -67,7 +68,7 @@
     }
     .scrollable {
       position: fixed;
-      top: 30px;
+      top: 40px;
       left: 0;
       right: 0;
       bottom: 0;
@@ -79,8 +80,8 @@
       -webkit-overflow-scrolling: touch;
     }
     #indicator {
-      height: 30px;
-      line-height: 30px;
+      height: 40px;
+      line-height: 40px;
       text-align: center;
       background-color: #fff;
     }
@@ -88,20 +89,22 @@
       width: 50%;
       float: left;
     }
-    #refresh {
-      position: absolute;
-      height: 30px;
-      width: 100%;
-      text-align: center;
-      top: -30px;
-    }
   </style>
 </head>
 <body>
   <div id="indicator">
     <div>
       <span id="count"></span>
-      <button id="top">top</button>
+      <input type="text" name="content" id="content" value="" placeholder="filter content"/>
+      <select id="sort" name="sort">
+        <option value="">-</option>
+        <option value="age">age</option>
+        <option value="text">text</option>
+      </select>
+      <select id="order" name="order">
+        <option value="1">desc</option>
+        <option value="-1">asc</option>
+      </select>
     </div>
   </div>
   <div class="scrollable">
