@@ -181,10 +181,10 @@ List.prototype.setListHeight = function () {
   var total = this.reactives.length + maxCount
   var h = this.padding.top + this.padding.bottom + Math.ceil(total/this.itemRowCount)*this.itemHeight
   this.parentNode.style.height = h + 'px'
+  // check if list too long
   var last = this.parentNode.lastElementChild
   var b = last.getBoundingClientRect().bottom
   var r = this.parentNode.getBoundingClientRect()
-  // list might be too long
   if (r.bottom < b) {
     this.parentNode.height = (h + b - r.bottom) + 'px'
   }

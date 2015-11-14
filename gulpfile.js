@@ -38,9 +38,9 @@ myConfig.debug = true
 
 var paths = {
   // watch files for webpack build
-  scripts: ['index.js', 'example/js/*.js'],
+  scripts: ['index.js', './example/js/*'],
   // file list for watching
-  asserts: ['example/build/*.js', 'exmaple/*.css', 'example/index.html']
+  asserts: ['example/build/*.js', 'exmaple/*.css', 'example/*.html']
 }
 
 gulp.task('default', ['build-dev'])
