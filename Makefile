@@ -1,5 +1,4 @@
 build:
-	@open http://localhost:3000/example/index.html
 	@gulp
 
 test:

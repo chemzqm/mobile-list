@@ -37,9 +37,10 @@ myConfig.devtool = 'sourcemap'
 myConfig.debug = true
 
 var paths = {
+  // watch files for webpack build
   scripts: ['index.js', 'example/js/*.js'],
   // file list for watching
-  asserts: ['exmaple/*.css', 'example/index.html']
+  asserts: ['example/build/*.js', 'exmaple/*.css', 'example/index.html']
 }
 
 gulp.task('default', ['build-dev'])
@@ -53,7 +54,7 @@ gulp.task('build-dev', ['webpack:build-dev', 'serve'], function () {
   var watcher = gulp.watch(paths.asserts)
   watcher.on('change', function (e) {
     livereload.changed(e.path)
-    growl(e.path)
+    growl(path.basename(e.path))
   })
 })
 
@@ -65,7 +66,6 @@ gulp.task('serve', serve({
 }))
 
 var devCompiler = webpack(myConfig)
-var outputFile = path.resolve(myConfig.output.path, myConfig.output.filename)
 
 gulp.task('webpack:build-dev', function (callback) {
   devCompiler.run(function (err, stats) {
@@ -73,8 +73,6 @@ gulp.task('webpack:build-dev', function (callback) {
     gutil.log('[webpack:build-dev]', stats.toString({
       colors: true
     }))
-    livereload.changed(outputFile)
-    growl(outputFile)
     callback()
   })
 })

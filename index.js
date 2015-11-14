@@ -8,6 +8,7 @@ var More = require('more')
 var Ptr = require('pull-to-refresh')
 var throttle = require('throttleit')
 var event = require('event')
+var computedStyle = require('computed-style')
 
 /**
  * List constructor
@@ -22,6 +23,10 @@ function List(template, scrollable, option) {
   var selector = option.parentSelector || 'ul'
   delete option.parentSelector
   var parentNode = this.parentNode = scrollable.querySelector(selector)
+  this.padding = {
+    top: parseInt(computedStyle(parentNode, 'paddingTop'), 10),
+    bottom: parseInt(computedStyle(parentNode, 'paddingBottom'), 10)
+  }
   this.scrollable = scrollable
   // super constructor
   ListRender.call(this, template, parentNode, option)
@@ -29,7 +34,10 @@ function List(template, scrollable, option) {
   this.params = {}
   this.events = events(parentNode, this.handlers)
   this._onscroll = this.onscroll.bind(this)
+  this._setListHeight = this.setListHeight.bind(this)
   event.bind(scrollable, 'scroll', this._onscroll)
+  // should bind to scrollable? may have performance influence
+  event.bind(window, 'resize', this._setListHeight)
   this.total = 0
 }
 
@@ -155,11 +163,50 @@ List.prototype.onchange = function () {
     var list = this.filtered || this.data
     this.total = list.length
   }
+  this.setListHeight()
   this.emit('change')
   if (this._iscroll) {
     setImmediate(function () {
       self._iscroll.refresh()
     })
+  }
+}
+
+List.prototype.setListHeight = function () {
+  if (!this.autoHeight) return
+  this.calculateItem()
+  // can not calculate
+  if (!this.itemHeight) return this.fixListHeight()
+  var maxCount = this.maxMoreCount()
+  var total = this.reactives.length + maxCount
+  var h = this.padding.top + this.padding.bottom + Math.ceil(total/this.itemRowCount)*this.itemHeight
+  this.parentNode.style.height = h + 'px'
+  var last = this.parentNode.lastElementChild
+  var b = last.getBoundingClientRect().bottom
+  var r = this.parentNode.getBoundingClientRect()
+  // list might be too long
+  if (r.bottom < b) {
+    this.parentNode.height = (h + b - r.bottom) + 'px'
+  }
+}
+
+/**
+ * Fix list height when can't calculate
+ *
+ * @api private
+ */
+List.prototype.fixListHeight = function () {
+  var last = this.parentNode.lastElementChild
+  var pad = this.padding.bottom + this.padding.top
+  if (last) {
+    var mb = parseInt(computedStyle(last, 'marginBottom'), 10)
+    var b = last.getBoundingClientRect().bottom
+    var r = this.parentNode.getBoundingClientRect()
+    var pb = r.bottom
+    var h = r.height + b - pb + this.padding.bottom + mb
+    this.parentNode.style.height = h + 'px'
+  } else {
+    this.parentNode.style.height = pad + 'px'
   }
 }
 
@@ -226,7 +273,7 @@ List.prototype.sort = function (field, dir, method) {
  * @api public
  */
 List.prototype.filter = function (field, val) {
-  this.scrollable.scrollTop = 0
+  this.scrollTo(0)
   if (this._local) {
     this.filterData(field, val)
   } else {
@@ -251,6 +298,7 @@ List.prototype.filter = function (field, val) {
  * @api public
  */
 List.prototype.select = function (n) {
+  this.scrollTo(0)
   if (this._local) {
     ListRender.prototype.select.apply(this, arguments)
   } else {
@@ -292,8 +340,48 @@ List.prototype.remove = function () {
   if (this._ptr) this._ptr.unbind()
   this.emit('remove')
   event.unbind(this.scrollable, 'scroll', this._onscroll)
+  event.unbind(window, 'resize', this._setListHeight)
   this.events.unbind()
   this.off()
+}
+
+/**
+ * Make scrollable scrollTo position Y
+ *
+ * @param {Number} y
+ * @api public
+ */
+List.prototype.scrollTo = function (y) {
+  if (this.scrollable === 'window') {
+    window.scrollTo(0, y)
+  } else {
+    this.scrollable.scrollTop = y
+  }
+}
+
+/**
+ * Calculate item height and item count per row
+ *
+ * @api private
+ */
+List.prototype.calculateItem = function () {
+  var children = this.parentNode.children
+  // can not calculate
+  if (children.length < 2) {
+    this.itemHeight = null
+    this.itemRowCount = null
+    return
+  }
+  var bottom
+  for (var i = 0, l = children.length; i < l; i++) {
+    var b = children[i].getBoundingClientRect().bottom
+    if (bottom && b !== bottom) {
+      this.itemHeight = Math.abs(b - bottom)
+      this.itemRowCount = i
+      break
+    }
+    bottom = b
+  }
 }
 
 /**
