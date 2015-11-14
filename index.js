@@ -229,7 +229,6 @@ List.prototype.filter = function (field, val) {
   this.scrollable.scrollTop = 0
   if (this._local) {
     this.filterData(field, val)
-    var list = this.filtered || this.data
   } else {
     var params = this.params
     if (!field || val === '' || val == null) {
