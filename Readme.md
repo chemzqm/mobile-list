@@ -21,13 +21,21 @@ Basic works, need more examples and test
 ## Usage
 
 ``` js
+var List = require('mobile-list')
+var template = require('./template.html')
+var list = new List(template, window, {
+  selector: 'ul.mylist'
+})
+api.loadUsers(function(err, arr) {
+  list.setData(arr)
+})
 ```
 
 ## Events
 
 * `sort` emit with params when remote sort needed (including `sortField` `sortDirection`)
 * `filter` emit with params when remote filter needed (including `filterField` `filterValud`)
-* `page` emit with params when remote paging needed (including `curpage`)
+* `page` emit with params when remote paging needed (including `curpage`, `perpage`)
 * `remove` emit just before this component removed
 
 ## API
