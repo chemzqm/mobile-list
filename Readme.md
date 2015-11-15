@@ -94,6 +94,10 @@ Filter the data by field, val or function, when it's remote mode(default mode), 
 
 Let pull-to-refresh to refresh more data
 
+### .setTotal(n)
+
+Set total data count for paging, can not used for local mode
+
 ### .remove()
 
 Remove all rendered repeat elements and unbind all events
