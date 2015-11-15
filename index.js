@@ -13,6 +13,17 @@ var computedStyle = require('computed-style')
 /**
  * List constructor
  *
+ * `option` optional option for [list-render](https://github.com/chemzqm/list-render)
+ * `option.selector` selector for parentNode of repeat template, default `ul`
+ * `option.delegate` delegate object for [reactive](https://github.com/chemzqm/reactive-lite)
+ * `option.bindings` bindings object for [reactive](https://github.com/chemzqm/reactive-lite)
+ * `option.filters` filters object for [reactive](https://github.com/chemzqm/reactive-lite)
+ * `option.model` [model]() class used for generate model
+ * `option.empty` String or Element rendered in parentNode when internal data list is empty
+ * `option.limit` the limit number for render when `setData()` (default no limit)
+ * `option.moreCount` works with `option.limit` it limit count of items to render with `.more(n)` method when last item visible on scroll, default 10
+ * `option.autoHeight` set the height of parentNode even if data not rendered (need limit to work, items should have same height)
+ *
  * @param {Element | String} template
  * @param {Element} scrollable
  * @param {Object} option
