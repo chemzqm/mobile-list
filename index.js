@@ -21,8 +21,7 @@ var computedStyle = require('computed-style')
 function List(template, scrollable, option) {
   if (!(this instanceof List)) return new List(template, scrollable, option)
   option = option || {}
-  var selector = option.parentSelector || 'ul'
-  delete option.parentSelector
+  var selector = option.selector || 'ul'
   var parentNode = this.parentNode = scrollable.querySelector(selector)
   this.padding = {
     top: parseInt(computedStyle(parentNode, 'paddingTop'), 10),

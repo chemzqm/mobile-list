@@ -45,7 +45,7 @@ api.loadUsers(function(err, arr) {
 * `template` template string or element for repeat render
 * `scrollable` the scrollable element
 * `option` optional option for [list-render](https://github.com/chemzqm/list-render)
-* `option.parentSelector` selector for parentNode of repeat template, default `ul`
+* `option.selector` selector for parentNode of repeat template, default `ul`
 * `option.delegate` delegate object for [reactive](https://github.com/chemzqm/reactive-lite)
 * `option.bindings` bindings object for [reactive](https://github.com/chemzqm/reactive-lite)
 * `option.filters` filters object for [reactive](https://github.com/chemzqm/reactive-lite)
