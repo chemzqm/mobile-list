@@ -27,26 +27,6 @@ var list = new List(template, scrollable, {
 
 // list.iscroll({handlebar: true})
 
-var curr = 0
-list.pullToRefresh(function () {
-  return new Promise(function (resolve) {
-    var users = PREPEND_USERS.slice(curr, curr + 5)
-    setTimeout(function () {
-      curr = curr + 5
-      resolve(users)
-    }, 1000)
-  })
-})
-
-//list.useMore(function (params) {
-//  return new Promise(function (resolve) {
-//    var total = params.total
-//    var users = ALL_DATA.slice(total, total + 10)
-//    setTimeout(function () {
-//      resolve(users)
-//    }, 1000)
-//  })
-//})
 setTimeout(function () {
   list.setData(USERS)
   var el = document.getElementById('loading')
