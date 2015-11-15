@@ -9,16 +9,9 @@
   <link rel="stylesheet" href="common.css" type="text/css" media="all" />
   <style>
     body {
-      font: 500 14px/1.6 "Helvetica Neue", Helvetica, sans-serif;
-      padding: 0px;
       background-color: #fff;
       overflow: hidden;
       margin: 0px;
-    }
-    * {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
     }
     .container {
       margin: 10px 10px 0 10px;
@@ -32,7 +25,6 @@
       padding: 10px 0;
       margin: 0;
     }
-
     .content > li {
       border-bottom: 1px solid #0a0a0a;
       color: #0A0A0A;
@@ -40,7 +32,6 @@
       line-height: 30px;
       padding: 0 5px;
     }
-
     .content > li {
       border-bottom: initial;
       font-weight: bolder;
@@ -64,8 +55,7 @@
       color: #00A0E9;
       padding: 10px 0;
     }
-    .scrollable {
-    }
+
     .scrollable {
       position: fixed;
       top: 40px;
@@ -84,10 +74,6 @@
       line-height: 40px;
       text-align: center;
       background-color: #fff;
-    }
-    #indicator > * {
-      width: 50%;
-      float: left;
     }
     .pager {
       text-align: center;
@@ -113,6 +99,7 @@
   <div class="scrollable">
     <div>
       <ul class="content">
+        <div class="loading">loading</div>
       </ul>
       <div class="bottom">Made by @chemzqm</div>
     </div>

@@ -9,7 +9,6 @@ var Ptr = require('pull-to-refresh')
 var throttle = require('throttleit')
 var event = require('event')
 var computedStyle = require('computed-style')
-var height = require('height')
 
 /**
  * List constructor
@@ -38,12 +37,9 @@ function List(template, scrollable, option) {
   event.bind(scrollable, 'scroll', this._onscroll)
   this.total = 0
   if (this.autoHeight) {
-    var div = this.wrapper = document.createElement('div')
-    parentNode.parentNode.insertBefore(div, parentNode)
-    div.appendChild(parentNode)
-    this._setWrapperHeight = this.setWrapperHeight.bind(this)
+    this._setListHeight = this.setListHeight.bind(this)
     // should bind to scrollable? may have performance influence
-    event.bind(window, 'resize', this._setWrapperHeight)
+    event.bind(window, 'resize', this._setListHeight)
   }
 }
 
@@ -83,7 +79,8 @@ List.prototype.onscroll = throttle(function () {
   } else {
     sb = this.scrollable.getBoundingClientRect().bottom
   }
-  if (b - sb < 30) {
+  var h = Math.max(this.itemHeight || 0, 30)
+  if (b - sb < h) {
     this.more(this.moreCount || 10)
   }
 } ,100)
@@ -169,7 +166,7 @@ List.prototype.onchange = function () {
     var list = this.filtered || this.data
     this.total = list.length
   }
-  if (this.autoHeight) this.setWrapperHeight()
+  if (this.autoHeight) this.setListHeight()
   this.emit('change')
   if (this._iscroll) {
     setImmediate(function () {
@@ -178,21 +175,23 @@ List.prototype.onchange = function () {
   }
 }
 
-List.prototype.setWrapperHeight = function () {
+/**
+ * Adjust list height if there's more data
+ *
+ * @api private
+ */
+List.prototype.setListHeight = function () {
   var m = this.maxMoreCount()
   if (m === 0) {
-    this.wrapper.style.height = 'auto'
+    this.parentNode.style.height = 'auto'
     return
   }
   var res = this.calculateItem()
   // something wrong
   if (!res.itemHeight) return
   var total = this.reactives.length + m
-  var r = this.parentNode.getBoundingClientRect()
   var h = this.padding.top + this.padding.bottom + Math.ceil(total/res.itemRowCount)*res.itemHeight
-  var d = h - r.height
-  var wh = height(this.wrapper) + d
-  this.wrapper.style.height = wh + 'px'
+  this.parentNode.style.height = h + 'px'
 }
 
 /**
@@ -325,7 +324,7 @@ List.prototype.remove = function () {
   if (this._ptr) this._ptr.unbind()
   this.emit('remove')
   event.unbind(this.scrollable, 'scroll', this._onscroll)
-  event.unbind(window, 'resize', this._setWrapperHeight)
+  event.unbind(window, 'resize', this._setListHeight)
   this.events.unbind()
   this.off()
 }
@@ -358,7 +357,7 @@ List.prototype.calculateItem = function () {
   for (var i = 0, l = children.length; i < l; i++) {
     var b = children[i].getBoundingClientRect().bottom
     if (bottom && b !== bottom) {
-      res.itemHeight = Math.abs(b - bottom)
+      this.itemHeight = res.itemHeight = Math.abs(b - bottom)
       res.itemRowCount = i
       break
     }

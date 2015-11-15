@@ -3,8 +3,7 @@ require('pull-to-refresh/ptr.css')
 require('more-mobile/more.css')
 var List = require('../..')
 var ALL_DATA = require('../data.json')
-var USERS = ALL_DATA.slice(0, 30)
-var PREPEND_USERS = ALL_DATA.slice(30, 60)
+var USERS = ALL_DATA.slice(0, 60)
 
 var scrollable = document.querySelector('.scrollable')
 
@@ -22,8 +21,8 @@ var list = new List(template, scrollable, {
     }
   },
   autoHeight: true,
-  moreCount: 8,
-  limit: 15
+  moreCount: 10,
+  limit: 30
 })
 
 // list.iscroll({handlebar: true})
@@ -48,6 +47,9 @@ list.pullToRefresh(function () {
 //    }, 1000)
 //  })
 //})
-list.setData(USERS)
-setCount()
+setTimeout(function () {
+  list.setData(USERS)
+  var el = document.getElementById('loading')
+  el.parentNode.removeChild(el)
+}, 500)
 list.on('change', setCount)

@@ -9,15 +9,10 @@
   <style>
     body {
       font: 500 14px/1.6 "Helvetica Neue", Helvetica, sans-serif;
+      margin: 0px;
       padding: 0px;
       background-color: #e8e8e8;
       overflow: hidden;
-      margin: 0px;
-    }
-    * {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
     }
     .container {
       margin: 10px 10px 0 10px;
@@ -28,7 +23,8 @@
     }
     .content {
       padding: 0;
-      margin: 0;
+      margin: 10px;
+      align-content: flex-start;
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
@@ -50,7 +46,6 @@
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
     }
-
     .content > li {
       font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
       color: #0c0c0c;
@@ -58,22 +53,19 @@
       text-align: center;
       font-size: 80%;
       line-height: 160px;
-      height: 200px;
+      height: 160px;
       padding: 20px;
       background-color: #eee;
       background-clip: content-box;
-      flex: 1 0 200px;
+      flex: 0 0 160px;
       list-style: none;
     }
 
     .bottom {
       text-align: center;
-      color: #333;
       line-height: 30px;
       color: #00A0E9;
       padding: 10px 0;
-    }
-    .scrollable {
     }
     .scrollable {
       position: fixed;
@@ -98,12 +90,12 @@
       width: 50%;
       float: left;
     }
-    #refresh {
-      position: absolute;
-      height: 30px;
-      width: 100%;
+    .center {
       text-align: center;
-      top: -30px;
+    }
+    #loading {
+      padding: 4em;
+      color: #fff;
     }
   </style>
 </head>
@@ -118,6 +110,10 @@
     <div>
       <ul class="content">
       </ul>
+      <div id="loading" class="center">
+        <img src="loading-spin.svg" width="64" height="64">
+        <h1>Please wait...</h1>
+      </div>
       <div class="bottom">Made by @chemzqm</div>
     </div>
   </div>
