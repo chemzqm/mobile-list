@@ -21,6 +21,7 @@ var list = new List(template, scrollable, {
       return str.substr(0, 40) + '...'
     }
   },
+  autoHeight: true,
   moreCount: 8,
   limit: 15
 })

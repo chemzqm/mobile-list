@@ -57,6 +57,7 @@
     "component-events": "^1.0.9",
     "computed-style": "^0.3.0",
     "domify": "^1.4.0",
+    "height": "0.0.4",
     "inherits": "^2.0.1",
     "iscroll-component": "^1.1.5",
     "list-render": "0.0.13",

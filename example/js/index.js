@@ -31,9 +31,10 @@ list.iscroll({handlebar: true})
 var curr = 0
 list.pullToRefresh(function () {
   return new Promise(function (resolve) {
-    var users = PREPEND_USERS.slice(curr, curr + 5)
+    var users = PREPEND_USERS.slice(curr, curr + 10)
+    console.log(users.length)
     setTimeout(function () {
-      curr = curr + 5
+      curr = curr + 10
       resolve(users)
     }, 1000)
   })
