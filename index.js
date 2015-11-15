@@ -18,7 +18,7 @@ var computedStyle = require('computed-style')
  * `option.delegate` delegate object for [reactive](https://github.com/chemzqm/reactive-lite)
  * `option.bindings` bindings object for [reactive](https://github.com/chemzqm/reactive-lite)
  * `option.filters` filters object for [reactive](https://github.com/chemzqm/reactive-lite)
- * `option.model` [model]() class used for generate model
+ * `option.model` model class used for generate model
  * `option.empty` String or Element rendered in parentNode when internal data list is empty
  * `option.limit` the limit number for render when `setData()` (default no limit)
  * `option.moreCount` works with `option.limit` it limit count of items to render with `.more(n)` method when last item visible on scroll, default 10
@@ -33,7 +33,7 @@ function List(template, scrollable, option) {
   if (!(this instanceof List)) return new List(template, scrollable, option)
   option = option || {}
   var selector = option.selector || 'ul'
-  var parentNode = this.parentNode = scrollable.querySelector(selector)
+  var parentNode = (scrollable === window)? document.querySelector(selector) : scrollable.querySelector(selector)
   this.padding = {
     top: parseInt(computedStyle(parentNode, 'paddingTop'), 10),
     bottom: parseInt(computedStyle(parentNode, 'paddingBottom'), 10)
@@ -70,6 +70,7 @@ List.prototype.iscroll = function (opt) {
 
 /**
  * Handler of `scroll` event from scrollable
+ * Render more data when bottom close to scrollable bottom
  *
  * @api public
  */
@@ -152,7 +153,6 @@ List.prototype.useMore = function (cb) {
     })
   }
   this._more = More(this.parentNode, callback, this.scrollable)
-  this._more.delta = 100
 }
 
 
@@ -244,7 +244,7 @@ List.prototype.bind = function (type, selector, handler) {
  * Sort the data by field, direction or method, when it's remote mode(default mode), emit event only
  *
  * @param {String} field
- * @param {Number} dir
+ * @param {Number|String} dir 1 or -1
  * @param {Function} method
  * @api public
  */
@@ -293,6 +293,7 @@ List.prototype.filter = function (field, val) {
  * @api public
  */
 List.prototype.select = function (n) {
+  if (!this.perpage) throw new Error('select expect perpage option')
   this.scrollTo(0)
   if (this._local) {
     ListRender.prototype.select.apply(this, arguments)
@@ -347,7 +348,7 @@ List.prototype.remove = function () {
  * @api public
  */
 List.prototype.scrollTo = function (y) {
-  if (this.scrollable === 'window') {
+  if (this.scrollable === window) {
     window.scrollTo(0, y)
   } else {
     this.scrollable.scrollTop = y
