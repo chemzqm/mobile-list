@@ -20,6 +20,7 @@ var computedStyle = require('computed-style')
  */
 function List(template, scrollable, option) {
   if (!(this instanceof List)) return new List(template, scrollable, option)
+  option = option || {}
   var selector = option.parentSelector || 'ul'
   delete option.parentSelector
   var parentNode = this.parentNode = scrollable.querySelector(selector)
@@ -31,7 +32,7 @@ function List(template, scrollable, option) {
   // super constructor
   ListRender.call(this, template, parentNode, option)
   this.handlers = {}
-  this.params = {}
+  this.params = {perpage: option.perpage}
   this.events = events(parentNode, this.handlers)
   this._onscroll = this.onscroll.bind(this)
   event.bind(scrollable, 'scroll', this._onscroll)
