@@ -10,7 +10,8 @@ var myConfig = {
   entry: {
     index: './example/js/index.js',
     local: './example/js/local.js',
-    remote: './example/js/remote.js'
+    remote: './example/js/remote.js',
+    float: './example/js/float.js'
   },
   output: {
     path: path.join('example', 'build'),

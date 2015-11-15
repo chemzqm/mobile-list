@@ -13,7 +13,7 @@ function setCount() {
   var ul = scrollable.querySelector('ul')
   el.textContent = ul.querySelectorAll('li').length
 }
-var template = '<li data-id="{id}">{age} {text | truncate}</li>'
+var template = '<li data-id="{id}">{age}</li>'
 
 var list = new List(template, scrollable, {
   filters: {
@@ -21,12 +21,11 @@ var list = new List(template, scrollable, {
       return str.substr(0, 40) + '...'
     }
   },
-  autoHeight: true,
   moreCount: 8,
   limit: 15
 })
 
-list.iscroll({handlebar: true})
+// list.iscroll({handlebar: true})
 
 var curr = 0
 list.pullToRefresh(function () {
@@ -39,15 +38,15 @@ list.pullToRefresh(function () {
   })
 })
 
-list.useMore(function (params) {
-  return new Promise(function (resolve) {
-    var total = params.total
-    var users = ALL_DATA.slice(total, total + 10)
-    setTimeout(function () {
-      resolve(users)
-    }, 1000)
-  })
-})
+//list.useMore(function (params) {
+//  return new Promise(function (resolve) {
+//    var total = params.total
+//    var users = ALL_DATA.slice(total, total + 10)
+//    setTimeout(function () {
+//      resolve(users)
+//    }, 1000)
+//  })
+//})
 list.setData(USERS)
 setCount()
 list.on('change', setCount)
