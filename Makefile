@@ -2,7 +2,7 @@ build:
 	@gulp
 
 test:
-	@webpack-dev-server 'mocha!./test/test.js' --hot --inline
+	@webpack-dev-server 'mocha!./test/test.js' --hot --inline --module-bind json --module-bind html --module-bind "css=style!css"
 
 test-karma:
 	@node_modules/.bin/karma start --single-run

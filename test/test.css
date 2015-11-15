@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+ul,li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.scrollable {
+  width: 400px;
+  height: 400px;
+  overflow: scroll;
+}
+li.item {
+  height: 40px;
+  line-height: 40px;
+}
+.item.float {
+  width: 190px;
+  display: block;
+  float: left;
+}

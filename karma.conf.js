@@ -1,5 +1,5 @@
+var path = require('path')
 // Karma configuration
-// npm i karma karma-cli karma-firefox-launcher karma-mocha karma-webpack  mocha --save-dev
 // node_modules/.bin/karma start --single-run
 module.exports = function(config) {
   config.set({
@@ -31,7 +31,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port
@@ -50,26 +50,43 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
-    webpack: {
-      module: {
-        loaders: [
-          {test: /\.html$/, loader: 'html'},
-          { test: /\.json$/, loader: 'json-loader' },
-          { test: /\.css$/, loader: 'style?!css?sourceMap' }
-        ]
-      }
-    },
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Firefox'],
+
+    webpack: {
+      module: {
+        loaders: [
+          { test: /\.html$/, loader: 'html-loader' },
+          { test: /\.json$/, loader: 'json-loader' },
+          { test: /\.css$/, loader: 'style!css' }
+        ],
+        preLoaders: [
+          // instrument only testing sources with Istanbul
+          {
+            test: /index\.js$/,
+            exclude: [path.resolve('test'), path.resolve('node_modules'), path.resolve('example')],
+            loader:'istanbul-instrumenter'
+          }
+        ]
+      }
+    },
 
     webpackMiddleware: {
         noInfo: true
     },
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false,
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        { type: 'text' },
+        { type: 'html', subdir: 'html' },
+        { type: 'lcovonly', subdir: 'lcov' },
+        { type: 'cobertura', subdir: 'cobertura' }
+      ]
+    }
   });
 };
-
