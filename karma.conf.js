@@ -56,6 +56,7 @@ module.exports = function(config) {
     browsers: ['Firefox'],
 
     webpack: {
+      devtool: 'eval',
       module: {
         loaders: [
           { test: /\.html$/, loader: 'html-loader' },

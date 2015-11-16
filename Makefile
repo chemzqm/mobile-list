@@ -2,7 +2,7 @@ build:
 	@gulp
 
 test:
-	@webpack-dev-server 'mocha!./test/test.js' --hot --inline --module-bind json --module-bind html --module-bind "css=style!css"
+	@webpack-dev-server 'mocha!./test/test.js' --hot --inline --debug --module-bind json --module-bind html --module-bind "css=style!css" --devtool eval
 
 test-karma:
 	@node_modules/.bin/karma start --single-run
@@ -14,4 +14,5 @@ test-coveralls:
 
 doc:
 	@ghp-import example -n -p
+
 .PHONY: test
