@@ -49,7 +49,7 @@ api.loadUsers(function(err, arr) {
 * `option.delegate` delegate object for [reactive](https://github.com/chemzqm/reactive-lite)
 * `option.bindings` bindings object for [reactive](https://github.com/chemzqm/reactive-lite)
 * `option.filters` filters object for [reactive](https://github.com/chemzqm/reactive-lite)
-* `option.model` [model]() class used for generate model
+* `option.model` [model](https://github.com/chemzqm/model) class used for generate model
 * `option.empty` String or Element rendered in parentNode when internal data list is empty
 * `option.limit` the limit number for render when `setData()` (default no limit)
 * `option.moreCount` works with `option.limit` it limit count of items to render with `.more(n)` method when last item visible on scroll, default 10
