@@ -2,6 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/chemzqm/mobile-list.svg)](http://travis-ci.org/chemzqm/mobile-list)
 [![Coverage Status](https://coveralls.io/repos/chemzqm/mobile-list/badge.svg?branch=master&service=github)](https://coveralls.io/github/chemzqm/mobile-list?branch=master)
+[![Dependency Status](https://david-dm.org/chemzqm/mobile-list.svg)](https://david-dm.org/chemzqm/mobile-list)
 
 Full featured list build for mobile first, while design ignorant.
 
@@ -45,6 +46,7 @@ api.loadUsers(function(err, arr) {
 * `template` template string or element for repeat render
 * `scrollable` the scrollable element
 * `option` optional option for [list-render](https://github.com/chemzqm/list-render)
+* `option.perpage` max page count perpage for paging, works with [pager](https://github.com/chemzqm/pager)
 * `option.selector` selector for parentNode of repeat template, default `ul`
 * `option.delegate` delegate object for [reactive](https://github.com/chemzqm/reactive-lite)
 * `option.bindings` bindings object for [reactive](https://github.com/chemzqm/reactive-lite)
