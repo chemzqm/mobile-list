@@ -34,6 +34,7 @@ function List(template, scrollable, option) {
   option = option || {}
   var selector = option.selector || 'ul'
   var parentNode = (scrollable === window)? document.querySelector(selector) : scrollable.querySelector(selector)
+  if (!parentNode || parentNode.nodeType !== 1) throw new Error('can\' find parentNode by selector [' + selector + ']')
   this.padding = {
     top: parseInt(computedStyle(parentNode, 'paddingTop'), 10),
     bottom: parseInt(computedStyle(parentNode, 'paddingBottom'), 10)
