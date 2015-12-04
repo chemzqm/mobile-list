@@ -1,12 +1,11 @@
 # Mobile-list
 
-[![Build Status](https://secure.travis-ci.org/chemzqm/mobile-list.svg)](http://travis-ci.org/chemzqm/mobile-list)
-[![Coverage Status](https://coveralls.io/repos/chemzqm/mobile-list/badge.svg?branch=master&service=github)](https://coveralls.io/github/chemzqm/mobile-list?branch=master)
-[![Dependency Status](https://david-dm.org/chemzqm/mobile-list.svg)](https://david-dm.org/chemzqm/mobile-list)
+[![NPM version](https://img.shields.io/npm/v/mobile-list.svg?style=flat-square)](https://www.npmjs.com/package/mobile-list)
+[![Dependency Status](https://img.shields.io/david/chemzqm/mobile-list.svg?style=flat-square)](https://david-dm.org/chemzqm/mobile-list)
+[![Build Status](https://img.shields.io/travis/chemzqm/mobile-list/master.svg?style=flat-square)](http://travis-ci.org/chemzqm/mobile-list)
+[![Coverage Status](https://img.shields.io/coveralls/chemzqm/mobile-list/master.svg?style=flat-square)](https://coveralls.io/github/chemzqm/mobile-list?branch=master)
 
 Full featured list build for mobile first, while design ignorant.
-
-Basic works, need more examples and test
 
 ## Features
 
