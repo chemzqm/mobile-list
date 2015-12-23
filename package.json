@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/chemzqm/name#readme",
   "devDependencies": {
-    "component-pager": "0.0.3",
+    "component-pager": "0.0.4",
     "component-tap-event": "^1.1.0",
     "connect-livereload": "^0.5.3",
     "coveralls": "^2.11.4",
@@ -33,7 +33,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-serve": "^1.2.0",
     "gulp-util": "^3.0.7",
-    "html-loader": "^0.3.0",
+    "html-loader": "^0.4.0",
     "istanbul": "^0.4.0",
     "istanbul-instrumenter-loader": "^0.1.3",
     "json-loader": "^0.5.3",
