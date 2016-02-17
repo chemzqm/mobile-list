@@ -58,7 +58,7 @@
     "component-events": "^1.0.9",
     "computed-style": "^0.3.0",
     "inherits": "^2.0.1",
-    "iscroll-component": "^1.1.6",
+    "iscroll-component": "^1.3.0",
     "list-render": "^0.1.0",
     "more-mobile": "^0.1.4",
     "pull-to-refresh": "^1.1.1",
