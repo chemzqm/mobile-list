@@ -1,6 +1,6 @@
 {
   "name": "mobile-list",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "full featured list build for mobile first",
   "main": "index.js",
   "directories": {
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/chemzqm/name.git"
   },
-  "keywords": [],
+  "keywords": ["reactive", "list", "reactive-lite"],
   "author": "chemzqm@gmail.com",
   "license": "MIT",
   "bugs": {
