@@ -5,8 +5,8 @@ webpackJsonp([1],[
 	__webpack_require__(1)
 	__webpack_require__(5)
 	__webpack_require__(7)
-	var List = __webpack_require__(11)
-	var ALL_DATA = __webpack_require__(63)
+	var List = __webpack_require__(9)
+	var ALL_DATA = __webpack_require__(67)
 	var USERS = ALL_DATA.slice(0, 30)
 	var PREPEND_USERS = ALL_DATA.slice(30, 60)
 	

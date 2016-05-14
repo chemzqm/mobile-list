@@ -6,11 +6,11 @@ webpackJsonp([2],{
 	__webpack_require__(1)
 	__webpack_require__(5)
 	__webpack_require__(7)
-	__webpack_require__(64)
-	var Pager = __webpack_require__(66)
-	var List = __webpack_require__(11)
-	var ALL_DATA = __webpack_require__(63)
-	var event = __webpack_require__(17)
+	__webpack_require__(68)
+	var Pager = __webpack_require__(70)
+	var List = __webpack_require__(9)
+	var ALL_DATA = __webpack_require__(67)
+	var event = __webpack_require__(15)
 	
 	var scrollable = document.querySelector('.scrollable')
 	var ul = scrollable.querySelector('ul')
@@ -71,13 +71,13 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 64:
+/***/ 68:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(65);
+	var content = __webpack_require__(69);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -98,7 +98,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 65:
+/***/ 69:
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -106,23 +106,23 @@ webpackJsonp([2],{
 	
 	
 	// module
-	exports.push([module.id, ".pager {\n  margin-top: 15px;\n}\n.pager {\n  margin-top: 10px;\n  padding: 0;\n  font-size: 14px;\n}\n\n.pager li {\n  display: inline-block;\n}\n\nli.prev.pager-hide a,\nli.next.pager-hide a {\n  color: #999;\n  border-color: #999;\n}\n.pager li.active a {\n  font-weight: bold;\n  border-color: #ddd;\n}\n.pager li a {\n  text-decoration: none;\n  border-radius: 3px;\n  padding: 3px 8px;\n  margin: 0 2px;\n  color: #444;\n}\n\n.pager li.prev a,\n.pager li.next a{\n  font-weight: bolder;\n  border: 1px solid #eee;\n}\n\n\n", ""]);
+	exports.push([module.id, ".pager {\n  margin-top: 10px;\n  padding: 0;\n  font-size: 14px;\n}\n\n.pager li {\n  display: inline-block;\n}\n\nli.prev.pager-hide a,\nli.next.pager-hide a {\n  color: #999;\n  border-color: #999;\n}\n.pager li.active a {\n  font-weight: bold;\n  border-color: #ddd;\n}\n.pager li a {\n  text-decoration: none;\n  border-radius: 3px;\n  padding: 3px 8px;\n  margin: 0 2px;\n  color: #444;\n}\n\n.pager li.prev a,\n.pager li.next a{\n  font-weight: bolder;\n  border: 1px solid #eee;\n}\n\n\n", ""]);
 	
 	// exports
 
 
 /***/ },
 
-/***/ 66:
+/***/ 70:
 /***/ function(module, exports, __webpack_require__) {
 
-	var Emitter = __webpack_require__(31)
-	var events = __webpack_require__(16)
-	var domify = __webpack_require__(47)
-	var query = __webpack_require__(67)
-	var classes = __webpack_require__(68)
-	var tap = __webpack_require__(70)
-	var template = __webpack_require__(71)
+	var Emitter = __webpack_require__(29)
+	var events = __webpack_require__(14)
+	var domify = __webpack_require__(51)
+	var query = __webpack_require__(19)
+	var classes = __webpack_require__(60)
+	var tap = __webpack_require__(71)
+	var template = __webpack_require__(72)
 	
 	var defineProperty = Object.defineProperty
 	/**
@@ -168,15 +168,15 @@ webpackJsonp([2],{
 	    self.perpage(v)
 	  })
 	  this.defineProperty(list, opts, 'total', function () {
-	      return self._total
+	    return self._total
 	  }, function (v) {
-	      self.total(v)
-	      self.select(self.current)
+	    self.total(v)
+	    self.select(self.current)
 	  })
 	  this.defineProperty(list, opts, 'curpage', function () {
-	      return self.current
+	    return self.current
 	  }, function (v) {
-	      self.select(v)
+	    self.select(v)
 	  })
 	}
 	
@@ -200,6 +200,7 @@ webpackJsonp([2],{
 	Pager.prototype.onclick = function (e) {
 	  e.preventDefault()
 	  var el = e.target.parentNode
+	  if (classes(el).has('pager-hide')) return
 	  if (classes(el).has('prev')) return this.prev()
 	  if (classes(el).has('next')) return this.next()
 	  this.show(el.textContent - 1)
@@ -287,13 +288,19 @@ webpackJsonp([2],{
 	}
 	
 	Pager.prototype.render = function () {
+	  var el = this.el
 	  var limit = this._limit || Infinity
 	  var curr = this.current
 	  var pages = this.pages()
-	  var el = this.el
 	  var prev = query('.prev', el)
 	  var next = query('.next', el)
 	  var links = ''
+	
+	  if (pages == 0) {
+	    el.style.display = 'none'
+	  } else {
+	    el.style.display = 'block'
+	  }
 	
 	  // remove old
 	  var lis = [].slice.call(el.children)
@@ -336,242 +343,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 67:
-/***/ function(module, exports) {
-
-	function one(selector, el) {
-	  return el.querySelector(selector);
-	}
-	
-	exports = module.exports = function(selector, el){
-	  el = el || document;
-	  return one(selector, el);
-	};
-	
-	exports.all = function(selector, el){
-	  el = el || document;
-	  return el.querySelectorAll(selector);
-	};
-	
-	exports.engine = function(obj){
-	  if (!obj.one) throw new Error('.one callback required');
-	  if (!obj.all) throw new Error('.all callback required');
-	  one = obj.one;
-	  exports.all = obj.all;
-	  return exports;
-	};
-
-
-/***/ },
-
-/***/ 68:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Module dependencies.
-	 */
-	
-	var index = __webpack_require__(69);
-	
-	/**
-	 * Whitespace regexp.
-	 */
-	
-	var re = /\s+/;
-	
-	/**
-	 * toString reference.
-	 */
-	
-	var toString = Object.prototype.toString;
-	
-	/**
-	 * Wrap `el` in a `ClassList`.
-	 *
-	 * @param {Element} el
-	 * @return {ClassList}
-	 * @api public
-	 */
-	
-	module.exports = function(el){
-	  return new ClassList(el);
-	};
-	
-	/**
-	 * Initialize a new ClassList for `el`.
-	 *
-	 * @param {Element} el
-	 * @api private
-	 */
-	
-	function ClassList(el) {
-	  if (!el || !el.nodeType) {
-	    throw new Error('A DOM element reference is required');
-	  }
-	  this.el = el;
-	  this.list = el.classList;
-	}
-	
-	/**
-	 * Add class `name` if not already present.
-	 *
-	 * @param {String} name
-	 * @return {ClassList}
-	 * @api public
-	 */
-	
-	ClassList.prototype.add = function(name){
-	  // classList
-	  if (this.list) {
-	    this.list.add(name);
-	    return this;
-	  }
-	
-	  // fallback
-	  var arr = this.array();
-	  var i = index(arr, name);
-	  if (!~i) arr.push(name);
-	  this.el.className = arr.join(' ');
-	  return this;
-	};
-	
-	/**
-	 * Remove class `name` when present, or
-	 * pass a regular expression to remove
-	 * any which match.
-	 *
-	 * @param {String|RegExp} name
-	 * @return {ClassList}
-	 * @api public
-	 */
-	
-	ClassList.prototype.remove = function(name){
-	  if ('[object RegExp]' == toString.call(name)) {
-	    return this.removeMatching(name);
-	  }
-	
-	  // classList
-	  if (this.list) {
-	    this.list.remove(name);
-	    return this;
-	  }
-	
-	  // fallback
-	  var arr = this.array();
-	  var i = index(arr, name);
-	  if (~i) arr.splice(i, 1);
-	  this.el.className = arr.join(' ');
-	  return this;
-	};
-	
-	/**
-	 * Remove all classes matching `re`.
-	 *
-	 * @param {RegExp} re
-	 * @return {ClassList}
-	 * @api private
-	 */
-	
-	ClassList.prototype.removeMatching = function(re){
-	  var arr = this.array();
-	  for (var i = 0; i < arr.length; i++) {
-	    if (re.test(arr[i])) {
-	      this.remove(arr[i]);
-	    }
-	  }
-	  return this;
-	};
-	
-	/**
-	 * Toggle class `name`, can force state via `force`.
-	 *
-	 * For browsers that support classList, but do not support `force` yet,
-	 * the mistake will be detected and corrected.
-	 *
-	 * @param {String} name
-	 * @param {Boolean} force
-	 * @return {ClassList}
-	 * @api public
-	 */
-	
-	ClassList.prototype.toggle = function(name, force){
-	  // classList
-	  if (this.list) {
-	    if ("undefined" !== typeof force) {
-	      if (force !== this.list.toggle(name, force)) {
-	        this.list.toggle(name); // toggle again to correct
-	      }
-	    } else {
-	      this.list.toggle(name);
-	    }
-	    return this;
-	  }
-	
-	  // fallback
-	  if ("undefined" !== typeof force) {
-	    if (!force) {
-	      this.remove(name);
-	    } else {
-	      this.add(name);
-	    }
-	  } else {
-	    if (this.has(name)) {
-	      this.remove(name);
-	    } else {
-	      this.add(name);
-	    }
-	  }
-	
-	  return this;
-	};
-	
-	/**
-	 * Return an array of classes.
-	 *
-	 * @return {Array}
-	 * @api public
-	 */
-	
-	ClassList.prototype.array = function(){
-	  var className = this.el.getAttribute('class') || '';
-	  var str = className.replace(/^\s+|\s+$/g, '');
-	  var arr = str.split(re);
-	  if ('' === arr[0]) arr.shift();
-	  return arr;
-	};
-	
-	/**
-	 * Check if class `name` is present.
-	 *
-	 * @param {String} name
-	 * @return {ClassList}
-	 * @api public
-	 */
-	
-	ClassList.prototype.has =
-	ClassList.prototype.contains = function(name){
-	  return this.list
-	    ? this.list.contains(name)
-	    : !! ~index(this.array(), name);
-	};
-
-
-/***/ },
-
-/***/ 69:
-/***/ function(module, exports) {
-
-	module.exports = function(arr, obj){
-	  if (arr.indexOf) return arr.indexOf(obj);
-	  for (var i = 0; i < arr.length; ++i) {
-	    if (arr[i] === obj) return i;
-	  }
-	  return -1;
-	};
-
-/***/ },
-
-/***/ 70:
+/***/ 71:
 /***/ function(module, exports) {
 
 	var endEvents = [
@@ -618,7 +390,6 @@ webpackJsonp([2],{
 	      // it'll execute this on the same touchstart.
 	      // this filters out the same touchstart event.
 	      if (e1 === e2) return
-	      if (e2.clientX !== e1.clientX || e2.clientY !== e1.clientY) return
 	
 	      cleanup()
 	
@@ -666,7 +437,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 71:
+/***/ 72:
 /***/ function(module, exports) {
 
 	module.exports = "<ul class=\"pager\">\n  <li class=\"prev\"><a href=\"#\">&lsaquo;</a></li>\n  <li class=\"next\"><a href=\"#\">&rsaquo;</a></li>\n</ul>\n";

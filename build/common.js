@@ -127,7 +127,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".iscroll-handlebar {\n  position: absolute;\n  right: 0px;\n  top: 0px;\n  transition: background-color 0.2s ease-out, transform 0.1s ease-out,width 0.1s ease-out, height 0.1s ease-out;\n  width: 4px;\n  border-radius: 2px;\n  background-color: rgba(0, 0, 0, 0);\n  z-index: 9999;\n  height: 0px;\n}\n", ""]);
+	exports.push([module.id, ".iscroll-handlebar {\n  position: absolute;\n  right: 1px;\n  top: 0px;\n  -webkit-transition: background-color 0.2s ease-out, -webkit-transform 0.1s ease-out,width 0.1s ease-out, height 0.1s ease-out;\n  transition: background-color 0.2s ease-out, transform 0.1s ease-out,width 0.1s ease-out, height 0.1s ease-out;\n  width: 2px;\n  border-radius: 1px;\n  background-color: rgba(0, 0, 0, 0);\n  z-index: 9999;\n  height: 0px;\n}\n", ""]);
 	
 	// exports
 
@@ -405,7 +405,6 @@
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
-		var sourceMap = obj.sourceMap;
 	
 		if(media) {
 			styleElement.setAttribute("media", media)
@@ -423,7 +422,6 @@
 	
 	function updateLink(linkElement, obj) {
 		var css = obj.css;
-		var media = obj.media;
 		var sourceMap = obj.sourceMap;
 	
 		if(sourceMap) {
@@ -477,7 +475,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@font-face {\n  font-family: 'ptr';\n  src: url('data:application/octet-stream;base64,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') format('woff'),\n       url('data:application/octet-stream;base64,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sCYrLbA7LLAAFrAEJbAEJiAuRyNHI2GwBkUrIyA8IC4jOLEmARQrLbA8LLEIBCVCsAAWsAQlsAQlIC5HI0cjYSCwBCNCsAZFKyCwYFBYILBAUVizAiADIBuzAiYDGllCQiMgR7AEQ7CAYmAgsAArIIqKYSCwAkNgZCOwA0NhZFBYsAJDYRuwA0NgWbADJbCAYmGwAiVGYTgjIDwjOBshICBGI0ewACsjYTghWbEmARQrLbA9LLAwKy6xJgEUKy2wPiywMSshIyAgPLAEI0IjOLEmARQrsARDLrAmKy2wPyywABUgR7AAI0KyAAEBFRQTLrAsKi2wQCywABUgR7AAI0KyAAEBFRQTLrAsKi2wQSyxAAEUE7AtKi2wQiywLyotsEMssAAWRSMgLiBGiiNhOLEmARQrLbBELLAII0KwQystsEUssgAAPCstsEYssgABPCstsEcssgEAPCstsEgssgEBPCstsEkssgAAPSstsEossgABPSstsEsssgEAPSstsEwssgEBPSstsE0ssgAAOSstsE4ssgABOSstsE8ssgEAOSstsFAssgEBOSstsFEssgAAOystsFIssgABOystsFMssgEAOystsFQssgEBOystsFUssgAAPistsFYssgABPistsFcssgEAPistsFgssgEBPistsFkssgAAOistsFossgABOistsFsssgEAOistsFwssgEBOistsF0ssDIrLrEmARQrLbBeLLAyK7A2Ky2wXyywMiuwNystsGAssAAWsDIrsDgrLbBhLLAzKy6xJgEUKy2wYiywMyuwNistsGMssDMrsDcrLbBkLLAzK7A4Ky2wZSywNCsusSYBFCstsGYssDQrsDYrLbBnLLA0K7A3Ky2waCywNCuwOCstsGkssDUrLrEmARQrLbBqLLA1K7A2Ky2wayywNSuwNystsGwssDUrsDgrLbBtLCuwCGWwAyRQeLABFTAtAAAAS7gAyFJYsQEBjlm5CAAIAGMgsAEjRLADI3CyBCgJRVJEsgoCByqxBgFEsSQBiFFYsECIWLEGA0SxJgGIUVi4BACIWLEGAURZWVlZuAH/hbAEjbEFAEQAAA==') format('truetype');\n}\n\n.ptr_scrollable {\n  position: relative;\n  overflow-y: visible;\n  -webkit-overflow-scrolling: touch;\n}\n\n.ptr_box {\n  position: absolute;\n  top: -40px;\n  display: block;\n  height: 40px;\n  left: 0px;\n  right: 0;\n  overflow: hidden;\n}\n\n.ptr_box .ptr_container {\n  position: relative;\n  width: 120px;\n  margin: auto;\n  text-align: center;\n  height: 40px;\n  line-height: 40px;\n}\n\n.ptr_box .ptr_text {\n  font-size: 14px;\n}\n\n.ptr_box .ptr_image {\n  position: absolute;\n  top: 0px;\n  left: 12px;\n  height: 100%;\n  -webkit-transform: translate3d(0, 0, 0);\n  -webkit-transform-origin: center center;\n  -webkit-transition: -webkit-transform .2s linear;\n  transition: -webkit-transform .2s linear;\n}\n\n.ptr_box .ptr_image:before {\n  font-family: \"ptr\";\n  font-size: 22px;\n  text-align: center;\n  line-height: 40px;\n  content: '\\E802';\n}\n\n.ptr_box .ptr_image.ptr_rotate {\n  -webkit-transform: translate3d(0, 0, 0) rotate(180deg);\n}\n\n.ptr_box .ptr_image.ptr_loading {\n  animation: spin 0.8s infinite linear;\n}\n\n.ptr_box .ptr_image.ptr_loading:before {\n  content: '\\E800';\n  font-size: 16px;\n}\n\n@-webkit-keyframes spin {\n  from {\n    -webkit-transform: translate3d(0, 0, 0) rotate(0deg);\n  }\n  to {\n    -webkit-transform: translate3d(0, 0, 0) rotate(360deg);\n  }\n}\n", ""]);
+	exports.push([module.id, ".ptr_scrollable {\n  position: relative;\n  overflow-y: visible;\n  -webkit-overflow-scrolling: touch;\n}\n\n.ptr_box {\n  position: absolute;\n  top: -40px;\n  display: block;\n  height: 40px;\n  left: 0px;\n  right: 0;\n  overflow: hidden;\n}\n\n.ptr_box .ptr_container {\n  position: relative;\n  width: 40px;\n  margin: auto;\n  text-align: center;\n  height: 40px;\n  line-height: 40px;\n}\n\n.ptr_box .ptr_text {\n  font-size: 14px;\n}\n\n.ptr_box .ptr_image {\n  position: absolute;\n  top: 0px;\n  left: 12px;\n  height: 100%;\n  -webkit-transform: translate3d(0, 0, 0);\n  -webkit-transform-origin: center center;\n  -webkit-transition: -webkit-transform .2s linear;\n  transition: -webkit-transform .2s linear;\n  line-height: 40px;\n  width: 14px;\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBkPSJNOS44NTQgMTkuMzU0bDYtNmEuNS41IDAgMCAwLS43MDctLjcwN0wxMCAxNy43OTNWMS41YS41LjUgMCAwIDAtMSAwdjE2LjI5M2wtNS4xNDUtNS4xNDZhLjUuNSAwIDAgMC0uNzA3LjcwOGw2IDZhLjUuNSAwIDAgMCAuNzA3IDB6Ii8+PC9zdmc+);\n}\n\n.ptr_box .ptr_image.ptr_rotate {\n  -webkit-transform: translate3d(0, 0, 0) rotate(180deg);\n}\n\n.ptr_box .ptr_image.ptr_loading {\n  animation: ptr-spin 0.8s infinite linear;\n  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MzIiIGhlaWdodD0iOTMyIiB2aWV3Qm94PSIwIDAgOTMyIDkzMiI+PHBhdGggZD0iTTQ2NiA5MzJjLTEyNC40NzMgMC0yNDEuNDk1LTQ4LjQ3My0zMjkuNTEzLTEzNi40ODdDNDguNDczIDcwNy40OTUgMCA1OTAuNDczIDAgNDY2YzAtODguMTM4IDI0Ljc0LTE3My45NjIgNzEuNTQ0LTI0OC4xOTIgNDUuNTA4LTcyLjE3MiAxMDkuODIzLTEzMC40OSAxODUuOTk2LTE2OC42NTJsMzkuMTM3IDc4LjEyQzIzNC43NTIgMTU4LjMgMTgyLjQ2IDIwNS43MiAxNDUuNDU1IDI2NC40MSAxMDcuNDYgMzI0LjY3IDg3LjM3NSAzOTQuMzc4IDg3LjM3NSA0NjZjMCAyMDguNzc0IDE2OS44NTMgMzc4LjYyNiAzNzguNjI2IDM3OC42MjZTODQ0LjYyNyA2NzQuNzc0IDg0NC42MjcgNDY2YzAtNzEuNjItMjAuMDg0LTE0MS4zMy01OC4wNzctMjAxLjU5LTM3LjAwOC01OC42OS04OS4zLTEwNi4xMS0xNTEuMjIzLTEzNy4xMzNsMzkuMTM3LTc4LjEyYzc2LjE3MyAzOC4xNiAxNDAuNDkgOTYuNDggMTg1Ljk5NiAxNjguNjVDOTA3LjI2MiAyOTIuMDQgOTMyLjAwMiAzNzcuODY0IDkzMi4wMDIgNDY2YzAgMTI0LjQ3My00OC40NzMgMjQxLjQ5NS0xMzYuNDg3IDMyOS41MTNDNzA3LjQ5NyA4ODMuNTI3IDU5MC40NzUgOTMyIDQ2Ni4wMDIgOTMyeiIvPjwvc3ZnPg==);\n}\n\n@-webkit-keyframes ptr-spin {\n  from {\n    -webkit-transform: translate3d(0, 0, 0) rotate(0deg);\n  }\n  to {\n    -webkit-transform: translate3d(0, 0, 0) rotate(360deg);\n  }\n}\n", ""]);
 	
 	// exports
 
@@ -517,38 +515,26 @@
 	
 	
 	// module
-	exports.push([module.id, ".more-loading {\n  margin: 10px 0;\n  padding: 0 10px;\n  font-size: 14px;\n  font-weight: 300;\n  font-family: sans-serif;\n  text-align: center;\n  color: #999;\n  display: none;\n  height: 22px;\n}\n\n.more-loading .more-refresh {\n  background: url(" + __webpack_require__(9) + ") no-repeat;\n  height: 14px;\n  width: 14px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.more-loading .more-spin {\n  -webkit-animation: more-spin 2s infinite linear;\n  animation: more-spin 2s infinite linear;\n  display: inline-block;\n}\n\n@media all and (-webkit-min-device-pixel-ratio: 1.5) {\n  .more-loading .more-refresh {\n    background: url(" + __webpack_require__(10) + ") no-repeat;\n    -webkit-background-size: contain;\n    background-size: contain;\n  }\n}\n\n@keyframes more-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n", ""]);
+	exports.push([module.id, ".more-loading {\n  margin: 10px 0;\n  padding: 0 10px;\n  font-size: 14px;\n  font-weight: 300;\n  font-family: sans-serif;\n  text-align: center;\n  color: #999;\n  visibility: hidden;\n  height: 22px;\n}\n\n.more-loading .more-refresh {\n  height: 14px;\n  width: 14px;\n  display: inline-block;\n  vertical-align: middle;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
 /* 9 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAQAAAC1QeVaAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAFiUAABYlAUlSJPAAAAD5SURBVBjTXcg9K4VhAADQ816Pz+5AkpQFSUr+gEJZDTbl/oA3E5OUyWCwmD1YMEgZDDYlw5WJshgw0BW3i8GifL1sxBlPApFEs37datw4VWPciqeESJ0xk3p9IVHyKmfUY4g0mDHtwqJz70ZMqXcCAQXTdswrodmYB9UqMpLYadeDgnIqUqsFvHmUBUPaLSlDyqtbP4IeH85If08kb9BtsOfStf86LNsMaVHx70fok1cKkSptavHhznsKTSZUHObQZN2RfQVVRBrNGrbqIiCnRat7FZ1y+hQM27AmC0i8ONBqQeZLtbI5655TAZ+2bMsb0OXTlWPXshTfSUZN5aSoWFkAAAAXdEVYdENyZWF0aW9uIFRpbWUAMjAxNC40LjI5PmtDvAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNC0wNS0yMFQxOToyOTozNSswODowMGuOqIwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTQtMDUtMjBUMTU6NDI6NTArMDg6MDAEa75fAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAABJRU5ErkJggg=="
-
-/***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAABd0RVh0Q3JlYXRpb24gVGltZQAyMDE0LjQuMjk+a0O8AAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAmVJREFUSIm91k+oVVUUx/HPUSkos1KEwAeVoxAzSiWpgWDQJEFJbFIOGq0nOlSTHIgOH0k2ibeaNXpIVIhSwYMXkYlFNIpykqgUDnQiamKop8E5F/f7c/88ercfbFj89t7ru7l3nb22uq4NQ5n5eGYeaWOZqa5rSwbZPD4+XlVVtQGbsBZPtuMaLuInTEXE9RYwgq9wHYfLXD2BmbkUu7EHT/c5153MPIkv8AFGcGbmoq7AzHwNn2JVH1BHD+OtdnTVLGD7872Po1hUTN3EJH7BFdzBCqzB63hmkFPNAlZVNYZ9hXWjhY9HxM25kmTmC/gBj84LmJnvzoCdxa6IuNAtQWZu0hRIX9g0YGY+i4+KuSlsjYjbPWBbcBJLB4FNA+IYHmvjy3izFwwiYqrYM5AWtSddjW2Fv7vzTS20OlW4s4h/q+v662HASuCWwpsYHR0dzn1XANcV3tlhwXhQNCsK76+FSp6ZT+BgYR3sAH/GQ228kMWyHO/NAkbEKwsIKfVUEV9l+l05DL1UxBf+D+COIv5+qMDMXI/NhTXBHN0iM5dhcY9ctyLinz6wxUhUrXVO09bmbMBn8HyXXN9hK3oCNR1/fRvfV3Sggd40rSaxPSL+7rYgM5fgQ+wt7OOaXjkv4CS29WlVL+JjzUOro1M4UK4bFPgqPsnMb/A7/tT8zyN4Gds193FV7PlW07zvZea8gY/gnXb0012M4XBE3J052Qt4Ap9jPzYOALqP0zgUEb92W9QNeAJvR8Q9fJaZz+ENzXe1Gis1lXoFf+BHfBkRl/qdai7gBMZaGIiI8ziveYb8J/0LrZ6vNaZkKKgAAAAASUVORK5CYII="
-
-/***/ },
-/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(setImmediate) {__webpack_require__(14)
-	var inherits = __webpack_require__(15)
-	var events = __webpack_require__(16)
-	var Iscroll = __webpack_require__(22)
-	var Emitter = __webpack_require__(31)
-	var ListRender = __webpack_require__(39)
-	var More = __webpack_require__(52)
-	var Ptr = __webpack_require__(57)
-	var throttle = __webpack_require__(37)
-	var event = __webpack_require__(17)
-	var computedStyle = __webpack_require__(30)
+	/* WEBPACK VAR INJECTION */(function(setImmediate) {__webpack_require__(12)
+	var inherits = __webpack_require__(13)
+	var events = __webpack_require__(14)
+	var Iscroll = __webpack_require__(20)
+	var Emitter = __webpack_require__(29)
+	var ListRender = __webpack_require__(44)
+	var More = __webpack_require__(56)
+	var Ptr = __webpack_require__(63)
+	var throttle = __webpack_require__(36)
+	var event = __webpack_require__(15)
+	var computedStyle = __webpack_require__(22)
 	
 	/**
 	 * List constructor
@@ -574,6 +560,7 @@
 	  option = option || {}
 	  var selector = option.selector || 'ul'
 	  var parentNode = (scrollable === window)? document.querySelector(selector) : scrollable.querySelector(selector)
+	  if (!parentNode || parentNode.nodeType !== 1) throw new Error('can\' find parentNode by selector [' + selector + ']')
 	  this.padding = {
 	    top: parseInt(computedStyle(parentNode, 'paddingTop'), 10),
 	    bottom: parseInt(computedStyle(parentNode, 'paddingBottom'), 10)
@@ -935,13 +922,13 @@
 	
 	module.exports = List
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10).setImmediate))
 
 /***/ },
-/* 12 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(13).nextTick;
+	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(11).nextTick;
 	var apply = Function.prototype.apply;
 	var slice = Array.prototype.slice;
 	var immediateIds = {};
@@ -1017,10 +1004,10 @@
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
 	  delete immediateIds[id];
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12).setImmediate, __webpack_require__(12).clearImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10).setImmediate, __webpack_require__(10).clearImmediate))
 
 /***/ },
-/* 13 */
+/* 11 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -1032,6 +1019,9 @@
 	var queueIndex = -1;
 	
 	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
 	    draining = false;
 	    if (currentQueue.length) {
 	        queue = currentQueue.concat(queue);
@@ -1117,7 +1107,7 @@
 
 
 /***/ },
-/* 14 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate) {
@@ -1128,10 +1118,10 @@
 	  }
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10).setImmediate))
 
 /***/ },
-/* 15 */
+/* 13 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -1160,7 +1150,7 @@
 
 
 /***/ },
-/* 16 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -1168,8 +1158,17 @@
 	 * Module dependencies.
 	 */
 	
-	var events = __webpack_require__(17);
-	var delegate = __webpack_require__(18);
+	try {
+	  var events = __webpack_require__(15);
+	} catch(err) {
+	  var events = __webpack_require__(15);
+	}
+	
+	try {
+	  var delegate = __webpack_require__(16);
+	} catch(err) {
+	  var delegate = __webpack_require__(16);
+	}
 	
 	/**
 	 * Expose `Events`.
@@ -1342,7 +1341,7 @@
 
 
 /***/ },
-/* 17 */
+/* 15 */
 /***/ function(module, exports) {
 
 	var bind = window.addEventListener ? 'addEventListener' : 'attachEvent',
@@ -1382,15 +1381,24 @@
 	};
 
 /***/ },
-/* 18 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 	
-	var closest = __webpack_require__(19)
-	  , event = __webpack_require__(17);
+	try {
+	  var closest = __webpack_require__(17);
+	} catch(err) {
+	  var closest = __webpack_require__(17);
+	}
+	
+	try {
+	  var event = __webpack_require__(15);
+	} catch(err) {
+	  var event = __webpack_require__(15);
+	}
 	
 	/**
 	 * Delegate event `type` to `selector`
@@ -1430,14 +1438,18 @@
 
 
 /***/ },
-/* 19 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module Dependencies
 	 */
 	
-	var matches = __webpack_require__(20)
+	try {
+	  var matches = __webpack_require__(18)
+	} catch (err) {
+	  var matches = __webpack_require__(18)
+	}
 	
 	/**
 	 * Export `closest`
@@ -1468,14 +1480,18 @@
 
 
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 	
-	var query = __webpack_require__(21);
+	try {
+	  var query = __webpack_require__(19);
+	} catch (err) {
+	  var query = __webpack_require__(19);
+	}
 	
 	/**
 	 * Element prototype.
@@ -1520,7 +1536,7 @@
 
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports) {
 
 	function one(selector, el) {
@@ -1547,27 +1563,24 @@
 
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(23)
-
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var detect = __webpack_require__(24)
+	var height = __webpack_require__(21)
+	var detect = __webpack_require__(23)
+	var Emitter = __webpack_require__(29)
+	var events = __webpack_require__(14)
+	var Tween = __webpack_require__(30)
+	var raf = __webpack_require__(35)
+	var throttle = __webpack_require__(36)
+	var debounce = __webpack_require__(37)
+	var Handlebar = __webpack_require__(39)
+	var wheel = __webpack_require__(40)
+	var hasTouch = __webpack_require__(43)
+	var computedStyle = __webpack_require__(22)
 	var touchAction = detect.touchAction
 	var transform = detect.transform
 	var has3d = detect.has3d
-	var computedStyle = __webpack_require__(30)
-	var Emitter = __webpack_require__(31)
-	var events = __webpack_require__(16)
-	var Tween = __webpack_require__(32)
-	var raf = __webpack_require__(36)
-	var throttle = __webpack_require__(37)
-	var Handlebar = __webpack_require__(38)
 	var max = Math.max
 	var min = Math.min
 	var now = Date.now
@@ -1585,11 +1598,11 @@
 	  var e
 	  try {
 	    e = new CustomEvent(name)
-	  } catch(error) {
+	  } catch (error) {
 	    try {
 	      e = document.createEvent('CustomEvent')
 	      e.initCustomEvent(name, false, false, 0)
-	    } catch(err) {
+	    } catch (err) {
 	      return
 	    }
 	  }
@@ -1605,40 +1618,56 @@
 	 * @api public
 	 */
 	function Iscroll(el, opts) {
-	  if (! (this instanceof Iscroll)) return new Iscroll(el, opts)
+	  if (!(this instanceof Iscroll)) return new Iscroll(el, opts)
 	  this.y = 0
 	  this.scrollable = el
 	  el.style.overflow = 'hidden'
-	  var children = el.children
-	  if (children.length !== 1) {
-	    throw new Error('iscroll need single element child of scrollable to work')
+	  var children = [].slice.call(el.children)
+	  var nodes = children.filter(function (node) {
+	    var pos = computedStyle(node, 'position')
+	    return  pos == 'static' || pos == 'relative'
+	  })
+	  if (nodes.length !== 1) {
+	    throw new Error('iscroll need single position static/relative child of scrollable to work')
 	  }
-	  this.el = children[0]
+	  opts = opts || {}
+	  var autorefresh = opts.autorefresh || true
+	  this.el = nodes[0]
+	  this.margin = parseInt(computedStyle(this.el, 'margin-bottom'), 10)
+	                + parseInt(computedStyle(this.el, 'margin-top'), 10)
 	  this.touchAction('none')
-	  this.refresh()
+	  this.refresh(true)
 	  this.bind()
 	  var self = this
 	  if (defineProperty) {
 	    defineProperty(this.scrollable, 'scrollTop', {
-	      set: function (v) {
-	        return self.scrollTo(-v, 200)
+	      set: function(v) {
+	        return self.scrollTo(-v, 400)
 	      },
-	      get: function () {
-	        return - self.y
+	      get: function() {
+	        return -self.y
 	      }
 	    })
 	  }
-	  this.on('scroll', function () {
+	  this.on('scroll', function() {
 	    var e = customEvent('scroll')
 	    if (e) el.dispatchEvent(e)
 	  })
-	  opts = opts || {}
+	  this.max = opts.max || 80
 	  if (opts.handlebar) {
 	    this.handlebar = new Handlebar(el)
 	  }
+	  if (!hasTouch) this.resizeHandlebar()
 	  this._refresh = this.refresh.bind(this)
 	  window.addEventListener('orientationchange', this._refresh, false)
 	  window.addEventListener('resize', this._refresh, false)
+	  if (autorefresh) {
+	    this.interval = setInterval(function () {
+	      if (!self.down && !self.animating) {
+	        self.refresh()
+	      }
+	    }, 100)
+	  }
 	}
 	
 	Emitter(Iscroll.prototype)
@@ -1648,15 +1677,18 @@
 	 *
 	 * @api private
 	 */
-	Iscroll.prototype.bind = function () {
-	  this.events = events(this.el, this)
+	Iscroll.prototype.bind = function() {
+	  this.events = events(this.scrollable, this)
 	  this.docEvents = events(document, this)
 	
-	   // W3C touch events
+	  // W3C touch events
 	  this.events.bind('touchstart')
 	  this.events.bind('touchmove')
+	  this.events.bind('touchleave', 'ontouchend')
 	  this.docEvents.bind('touchend')
 	  this.docEvents.bind('touchcancel', 'ontouchend')
+	
+	  if (!hasTouch) this._wheelHandler = wheel(this.scrollable, this.onwheel.bind(this), true)
 	}
 	
 	/**
@@ -1664,9 +1696,22 @@
 	 *
 	 * @api public
 	 */
-	Iscroll.prototype.refresh = function () {
-	  this.viewHeight = this.scrollable.getBoundingClientRect().height
-	  this.height = this.el.getBoundingClientRect().height
+	Iscroll.prototype.refresh = function(noscroll) {
+	  var sh = this.viewHeight = this.scrollable.getBoundingClientRect().height
+	  var ch = this.el.getBoundingClientRect().height + this.margin
+	  // at least clientHeight
+	  var h = this.height = Math.max(sh, height(this.el)) + this.margin
+	  this.minY = min(0, sh - h)
+	  // only change height when needed
+	  if (ch !== h) {
+	    this.el.style.height = h + 'px'
+	  }
+	  if (ch === h || noscroll === true) return
+	  if (this.y < this.minY) {
+	    this.scrollTo(this.minY, 300)
+	  } else if (this.y > 0) {
+	    this.scrollTo(0, 300)
+	  }
 	}
 	
 	/**
@@ -1674,21 +1719,28 @@
 	 *
 	 * @api public
 	 */
-	Iscroll.prototype.unbind = function () {
+	Iscroll.prototype.unbind = function() {
 	  this.off()
 	  this.events.unbind()
 	  this.docEvents.unbind()
 	  window.removeEventListener('orientationchange', this._refresh, false)
 	  window.removeEventListener('resize', this._refresh, false)
+	  if (this.interval) window.clearInterval(this.interval)
+	  if (this._wheelHandler) this.scrollable.removeEventListener('wheel', this._wheelHandler)
 	  if (this.handlebar) this.scrollable.removeChild(this.handlebar.el)
 	}
 	
-	Iscroll.prototype.restrict = function (y) {
-	  y = min(y , 80)
-	  var h = Math.max(this.height, this.viewHeight)
-	  y = max(y , this.viewHeight - h - 80)
-	  return y
+	Iscroll.prototype.onwheel = function (dx, dy) {
+	  if (Math.abs(dx) > Math.abs(dy)) return
+	  if (this.handlebar) this.resizeHandlebar()
+	  var y = this.y - dy
+	  if (y > 0) y = 0
+	  if (y < this.minY) y = this.minY
+	  if (y === this.y) return
+	  this.refresh(true)
+	  this.scrollTo(y, 20, 'linear')
 	}
+	
 	
 	/**
 	 * touchstart event handler
@@ -1696,21 +1748,45 @@
 	 * @param  {Event}  e
 	 * @api private
 	 */
-	Iscroll.prototype.ontouchstart = function (e) {
+	Iscroll.prototype.ontouchstart = function(e) {
 	  this.speed = null
-	  this.leftright = null
 	  if (this.tween) this.tween.stop()
-	  this.dy = 0
-	  this.ts = now()
-	  if (this.handlebar) this.resizeHandlebar()
+	  this.refresh(true)
+	  var start = this.y
+	  if (e.target === this.scrollable) {
+	    start = min(start, 0)
+	    start = max(start, this.minY)
+	      // fix the invalid start position
+	    if (start !== this.y) return this.scrollTo(start, 200)
+	    return
+	  }
 	
 	  var touch = this.getTouch(e)
-	  this.clientY = touch.clientY
-	  this.down = {
-	    x: touch.clientX,
-	    y: touch.clientY,
-	    start: this.y,
-	    at: now()
+	  var sx = touch.clientX
+	  var sy = touch.clientY
+	  var at = now()
+	
+	
+	  this.onstart = function(x, y) {
+	    // no moved up and down, so don't know
+	    if (sy === y) return
+	    this.onstart = null
+	    var dx = Math.abs(x - sx)
+	    var dy = Math.abs(y - sy)
+	      // move left and right
+	    if (dx > dy) return
+	    this.clientY = touch.clientY
+	    this.dy = 0
+	    this.ts = now()
+	    this.down = {
+	      x: sx,
+	      y: sy,
+	      start: start,
+	      at: at
+	    }
+	    if (this.handlebar) this.resizeHandlebar()
+	    this.emit('start', this.y)
+	    return true
 	  }
 	}
 	
@@ -1720,35 +1796,25 @@
 	 * @param  {Event}  e
 	 * @api private
 	 */
-	Iscroll.prototype.ontouchmove = function (e) {
+	Iscroll.prototype.ontouchmove = function(e) {
 	  e.preventDefault()
-	  // do nothing if left right move
-	  if (e.touches.length > 1 || !this.down || this.leftright) return
+	  if (!this.down && !this.onstart) return
 	  var touch = this.getTouch(e)
-	  var down = this.down
-	  var dy = this.dy = touch.clientY - down.y
-	  var dx = touch.clientX - down.x
-	  // can not determine
-	  if (dx === 0 && dy === 0) return
-	  // determine dy and the slope
-	  if (null == this.leftright) {
-	    // no move if contentHeight < viewHeight and move up
-	    if (this.height <= this.viewHeight && dy < 0) return
-	    var slope = dx / dy
-	    // if is greater than 1 or -1, we're swiping up/down
-	    if (slope > 1 || slope < -1) {
-	      this.leftright = true
-	      if (this.handlebar) this.hideHandlebar()
-	      return
-	    } else {
-	      this.leftright = false
-	    }
+	  var x = touch.clientX
+	  var y = touch.clientY
+	  if (this.onstart) {
+	    var started = this.onstart(x, y)
+	    if (started !== true) return
 	  }
+	  var down = this.down
+	  var dy = this.dy = y - down.y
 	
 	  //calculate speed every 100 milisecond
-	  this.calcuteSpeed(touch.clientY)
+	  this.calcuteSpeed(touch.clientY, down.at)
 	  var start = this.down.start
-	  var dest = this.restrict(start + dy)
+	  var dest = start + dy
+	  dest = min(dest, this.max)
+	  dest = max(dest, this.minY - this.max)
 	  this.translate(dest)
 	}
 	
@@ -1758,15 +1824,15 @@
 	 * @param {Number} y
 	 * @api priavte
 	 */
-	Iscroll.prototype.calcuteSpeed = function (y) {
+	Iscroll.prototype.calcuteSpeed = function(y, start) {
 	  var ts = now()
 	  var dt = ts - this.ts
-	  if (ts - this.down.at < 100) {
+	  if (ts - start < 100) {
 	    this.distance = y - this.clientY
-	    this.speed = Math.abs(this.distance/dt)
-	  } else if(dt > 100){
+	    this.speed = Math.abs(this.distance / dt)
+	  } else if (dt > 100) {
 	    this.distance = y - this.clientY
-	    this.speed = Math.abs(this.distance/dt)
+	    this.speed = Math.abs(this.distance / dt)
 	    this.ts = ts
 	    this.clientY = y
 	  }
@@ -1778,18 +1844,15 @@
 	 * @param  {Event}  e
 	 * @api private
 	 */
-	Iscroll.prototype.ontouchend = function (e) {
-	  if (!this.down || this.leftright) return
-	  if (this.height <= this.viewHeight && this.dy < 0) {
-	    if(this.handlebar) this.handlebar.hide()
-	    return
-	  }
+	Iscroll.prototype.ontouchend = function(e) {
+	  if (!this.down) return
+	  var at = this.down.at
+	  this.down = null
 	  var touch = this.getTouch(e)
-	  this.calcuteSpeed(touch.clientY)
+	  this.calcuteSpeed(touch.clientY, at)
 	  var m = this.momentum()
 	  this.scrollTo(m.dest, m.duration, m.ease)
 	  this.emit('release', this.y)
-	  this.down = null
 	}
 	
 	/**
@@ -1798,27 +1861,26 @@
 	 * @return {Object}
 	 * @api private
 	 */
-	Iscroll.prototype.momentum = function () {
-	  var deceleration = 0.0004
+	Iscroll.prototype.momentum = function() {
+	  var deceleration = 0.001
 	  var speed = this.speed
-	  speed = min(speed, 0.8)
-	  var destination = this.y + ( speed * speed ) / ( 2 * deceleration ) * ( this.distance < 0 ? -1 : 1 )
+	  speed = min(speed, 2)
+	  var y = this.y
+	  var rate = (4 - Math.PI)/2
+	  var destination = y + rate * (speed * speed) / (2 * deceleration) * (this.distance < 0 ? -1 : 1)
 	  var duration = speed / deceleration
-	  var newY, ease
-	  if (destination > 0) {
-	    newY = 0
-	    ease = 'out-back'
-	  } else if (destination < this.viewHeight - this.height) {
-	    newY = this.viewHeight - this.height
-	    ease = 'out-back'
-	  }
-	  if (typeof newY === 'number') {
-	    duration = duration*(newY - this.y + 160)/(destination - this.y)
-	    destination = newY
-	  }
-	  if (this.y > 0 || this.y < this.viewHeight - this.height) {
+	  var ease
+	  var minY = this.minY
+	  if (y > 0 || y < minY) {
 	    duration = 500
 	    ease = 'out-circ'
+	    destination = y > 0 ? 0 : minY
+	  } else if (destination > 0) {
+	    destination = 0
+	    ease = 'out-back'
+	  } else if (destination < minY) {
+	    destination = minY
+	    ease = 'out-back'
 	  }
 	  return {
 	    dest: destination,
@@ -1836,30 +1898,40 @@
 	 * @param {String} easing
 	 * @api public
 	 */
-	Iscroll.prototype.scrollTo = function (y, duration, easing) {
+	Iscroll.prototype.scrollTo = function(y, duration, easing) {
 	  if (this.tween) this.tween.stop()
-	  var intransition = (duration > 0 && y !== this.y)
-	  if (!intransition) {
-	    this.onScrollEnd()
-	    return this.translate(y)
+	  var transition = (duration > 0 && y !== this.y)
+	  if (!transition) {
+	    this.direction = 0
+	    this.translate(y)
+	    return this.onScrollEnd()
 	  }
 	
+	  this.direction = y > this.y ? -1 : 1
+	
 	  easing = easing || 'out-cube'
-	  var tween = this.tween = Tween({y : this.y})
-	      .ease(easing)
-	      .to({y: y})
-	      .duration(duration)
+	  var tween = this.tween = Tween({
+	      y: this.y
+	    })
+	    .ease(easing)
+	    .to({
+	      y: y
+	    })
+	    .duration(duration)
 	
 	  var self = this
 	  tween.update(function(o) {
 	    self.translate(o.y)
 	  })
-	
-	  tween.on('end', function () {
-	    animate = function(){} // eslint-disable-line
-	    if (!tween.stopped) {
-	      self.onScrollEnd()
-	    }
+	  var promise = new Promise(function(resolve) {
+	    tween.on('end', function() {
+	      resolve()
+	      self.animating = false
+	      animate = function() {} // eslint-disable-line
+	      if (!tween.stopped) { // no emit scrollend if tween stopped
+	        self.onScrollEnd()
+	      }
+	    })
 	  })
 	
 	  function animate() {
@@ -1868,6 +1940,8 @@
 	  }
 	
 	  animate()
+	  this.animating = true
+	  return promise
 	}
 	
 	/**
@@ -1875,15 +1949,15 @@
 	 *
 	 * @api private
 	 */
-	Iscroll.prototype.onScrollEnd = function () {
-	  this.hideHandlebar()
-	  var top = this.y === 0
-	  var bottom = this.y === (this.viewHeight - this.height)
+	Iscroll.prototype.onScrollEnd = debounce(function() {
+	  if (this.animating) return
+	  if (hasTouch) this.hideHandlebar()
+	  var y = this.y
 	  this.emit('scrollend', {
-	    top: top,
-	    bottom: bottom
+	    top: y >= 0,
+	    bottom: y <= this.minY
 	  })
-	}
+	}, 20)
 	
 	/**
 	 * Gets the appropriate "touch" object for the `e` event. The event may be from
@@ -1892,7 +1966,7 @@
 	 * @api private
 	 */
 	
-	Iscroll.prototype.getTouch = function(e){
+	Iscroll.prototype.getTouch = function(e) {
 	  // "mouse" and "Pointer" events just use the event object itself
 	  var touch = e
 	  if (e.changedTouches && e.changedTouches.length > 0) {
@@ -1914,10 +1988,10 @@
 	  var s = this.el.style
 	  if (isNaN(y)) return
 	  y = Math.floor(y)
-	  //reach the end
+	    //reach the end
 	  if (this.y !== y) {
 	    this.y = y
-	    this.emit('scroll', - y)
+	    this.emit('scroll', -y)
 	    if (this.handlebar) this.transformHandlebar()
 	  }
 	  if (has3d) {
@@ -1933,7 +2007,7 @@
 	 * @api private
 	 */
 	
-	Iscroll.prototype.touchAction = function(value){
+	Iscroll.prototype.touchAction = function(value) {
 	  var s = this.el.style
 	  if (touchAction) {
 	    s[touchAction] = value
@@ -1945,12 +2019,10 @@
 	 *
 	 * @api private
 	 */
-	Iscroll.prototype.transformHandlebar = throttle(function(){
+	Iscroll.prototype.transformHandlebar = throttle(function() {
 	  var vh = this.viewHeight
 	  var h = this.height
-	  var bh = vh - vh * vh/h
-	  var ih = h - vh
-	  var y = parseInt(- bh * this.y/ih)
+	  var y = Math.round(-(vh - vh * vh / h) * this.y / (h - vh))
 	  this.handlebar.translateY(y)
 	}, 100)
 	
@@ -1958,8 +2030,9 @@
 	 * show the handlebar and size it
 	 * @api public
 	 */
-	Iscroll.prototype.resizeHandlebar = function(){
-	  var h = this.viewHeight * this.viewHeight/this.height
+	Iscroll.prototype.resizeHandlebar = function() {
+	  var vh = this.viewHeight
+	  var h = vh * vh / this.height
 	  this.handlebar.resize(h)
 	}
 	
@@ -1968,7 +2041,7 @@
 	 *
 	 * @api private
 	 */
-	Iscroll.prototype.hideHandlebar = function () {
+	Iscroll.prototype.hideHandlebar = function() {
 	  if (this.handlebar) this.handlebar.hide()
 	}
 	
@@ -1976,159 +2049,43 @@
 
 
 /***/ },
-/* 24 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports.transition = __webpack_require__(25)
+	var computedStyle = __webpack_require__(22)
 	
-	exports.transform = __webpack_require__(26)
-	
-	exports.touchAction = __webpack_require__(27)
-	
-	exports.transitionend = __webpack_require__(28)
-	
-	exports.has3d = __webpack_require__(29)
-
-
-/***/ },
-/* 25 */
-/***/ function(module, exports) {
-
-	var styles = [
-	  'transition',
-	  'webkitTransition',
-	  'MozTransition',
-	  'OTransition',
-	  'msTransition'
-	]
-	
-	var el = document.createElement('p')
-	var style
-	
-	for (var i = 0; i < styles.length; i++) {
-	  if (null != el.style[styles[i]]) {
-	    style = styles[i]
-	    break
+	/**
+	 * Find last visible element
+	 *
+	 * @param  {Element}  el
+	 * @return {Element}
+	 */
+	function lastVisible(el) {
+	  var nodes = el.childNodes
+	  for(var i = nodes.length - 1; i >=0; i --) {
+	    var node = nodes[i]
+	    if (node.nodeType === 1 && computedStyle(node, 'display') !== 'none') {
+	      return node
+	    }
 	  }
 	}
-	el = null
 	
-	module.exports = style
-
-
-/***/ },
-/* 26 */
-/***/ function(module, exports) {
-
-	
-	var styles = [
-	  'webkitTransform',
-	  'MozTransform',
-	  'msTransform',
-	  'OTransform',
-	  'transform'
-	];
-	
-	var el = document.createElement('p');
-	var style;
-	
-	for (var i = 0; i < styles.length; i++) {
-	  style = styles[i];
-	  if (null != el.style[style]) {
-	    module.exports = style;
-	    break;
-	  }
+	function height(node) {
+	  var child = lastVisible(node)
+	  var pb = parseInt(computedStyle(node, 'paddingBottom'), 10)
+	  var pt = parseInt(computedStyle(node, 'paddingTop'), 10)
+	  if (!child) return pb + pt
+	  var r = node.getBoundingClientRect()
+	  var mb = pb ? parseInt(computedStyle(child, 'marginBottom'), 10) : 0
+	  var cb = child.getBoundingClientRect().bottom
+	  return cb - r.top + mb + pb
 	}
+	
+	module.exports = height
 
 
 /***/ },
-/* 27 */
-/***/ function(module, exports) {
-
-	
-	/**
-	 * Module exports.
-	 */
-	
-	module.exports = touchActionProperty();
-	
-	/**
-	 * Returns "touchAction", "msTouchAction", or null.
-	 */
-	
-	function touchActionProperty(doc) {
-	  if (!doc) doc = document;
-	  var div = doc.createElement('div');
-	  var prop = null;
-	  if ('touchAction' in div.style) prop = 'touchAction';
-	  else if ('msTouchAction' in div.style) prop = 'msTouchAction';
-	  div = null;
-	  return prop;
-	}
-
-
-/***/ },
-/* 28 */
-/***/ function(module, exports) {
-
-	/**
-	 * Transition-end mapping
-	 */
-	
-	var map = {
-	  'WebkitTransition' : 'webkitTransitionEnd',
-	  'MozTransition' : 'transitionend',
-	  'OTransition' : 'oTransitionEnd',
-	  'msTransition' : 'MSTransitionEnd',
-	  'transition' : 'transitionend'
-	};
-	
-	/**
-	 * Expose `transitionend`
-	 */
-	
-	var el = document.createElement('p');
-	
-	for (var transition in map) {
-	  if (null != el.style[transition]) {
-	    module.exports = map[transition];
-	    break;
-	  }
-	}
-
-
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	var prop = __webpack_require__(26);
-	
-	// IE <=8 doesn't have `getComputedStyle`
-	if (!prop || !window.getComputedStyle) {
-	  module.exports = false;
-	
-	} else {
-	  var map = {
-	    webkitTransform: '-webkit-transform',
-	    OTransform: '-o-transform',
-	    msTransform: '-ms-transform',
-	    MozTransform: '-moz-transform',
-	    transform: 'transform'
-	  };
-	
-	  // from: https://gist.github.com/lorenzopolidori/3794226
-	  var el = document.createElement('div');
-	  el.style[prop] = 'translate3d(1px,1px,1px)';
-	  document.body.insertBefore(el, null);
-	  var val = getComputedStyle(el).getPropertyValue(map[prop]);
-	  document.body.removeChild(el);
-	  module.exports = null != val && val.length && 'none' != val;
-	}
-
-
-/***/ },
-/* 30 */
+/* 22 */
 /***/ function(module, exports) {
 
 	// DEV: We don't use var but favor parameters since these play nicer with minification
@@ -2159,6 +2116,510 @@
 	
 	module.exports = computedStyle;
 
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports.transition = __webpack_require__(24)
+	
+	exports.transform = __webpack_require__(25)
+	
+	exports.touchAction = __webpack_require__(26)
+	
+	exports.transitionend = __webpack_require__(27)
+	
+	exports.has3d = __webpack_require__(28)
+
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	var styles = [
+	  'webkitTransition',
+	  'MozTransition',
+	  'OTransition',
+	  'msTransition',
+	  'transition'
+	]
+	
+	var el = document.createElement('p')
+	var style
+	
+	for (var i = 0; i < styles.length; i++) {
+	  if (null != el.style[styles[i]]) {
+	    style = styles[i]
+	    break
+	  }
+	}
+	el = null
+	
+	module.exports = style
+
+
+/***/ },
+/* 25 */
+/***/ function(module, exports) {
+
+	
+	var styles = [
+	  'webkitTransform',
+	  'MozTransform',
+	  'msTransform',
+	  'OTransform',
+	  'transform'
+	];
+	
+	var el = document.createElement('p');
+	var style;
+	
+	for (var i = 0; i < styles.length; i++) {
+	  style = styles[i];
+	  if (null != el.style[style]) {
+	    module.exports = style;
+	    break;
+	  }
+	}
+
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	
+	/**
+	 * Module exports.
+	 */
+	
+	module.exports = touchActionProperty();
+	
+	/**
+	 * Returns "touchAction", "msTouchAction", or null.
+	 */
+	
+	function touchActionProperty(doc) {
+	  if (!doc) doc = document;
+	  var div = doc.createElement('div');
+	  var prop = null;
+	  if ('touchAction' in div.style) prop = 'touchAction';
+	  else if ('msTouchAction' in div.style) prop = 'msTouchAction';
+	  div = null;
+	  return prop;
+	}
+
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	/**
+	 * Transition-end mapping
+	 */
+	
+	var map = {
+	  'WebkitTransition' : 'webkitTransitionEnd',
+	  'MozTransition' : 'transitionend',
+	  'OTransition' : 'oTransitionEnd',
+	  'msTransition' : 'MSTransitionEnd',
+	  'transition' : 'transitionend'
+	};
+	
+	/**
+	 * Expose `transitionend`
+	 */
+	
+	var el = document.createElement('p');
+	
+	for (var transition in map) {
+	  if (null != el.style[transition]) {
+	    module.exports = map[transition];
+	    break;
+	  }
+	}
+
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	var prop = __webpack_require__(25);
+	
+	// IE <=8 doesn't have `getComputedStyle`
+	if (!prop || !window.getComputedStyle) {
+	  module.exports = false;
+	
+	} else {
+	  var map = {
+	    webkitTransform: '-webkit-transform',
+	    OTransform: '-o-transform',
+	    msTransform: '-ms-transform',
+	    MozTransform: '-moz-transform',
+	    transform: 'transform'
+	  };
+	
+	  // from: https://gist.github.com/lorenzopolidori/3794226
+	  var el = document.createElement('div');
+	  el.style[prop] = 'translate3d(1px,1px,1px)';
+	  document.body.insertBefore(el, null);
+	  var val = getComputedStyle(el).getPropertyValue(map[prop]);
+	  document.body.removeChild(el);
+	  module.exports = null != val && val.length && 'none' != val;
+	}
+
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * Expose `Emitter`.
+	 */
+	
+	if (true) {
+	  module.exports = Emitter;
+	}
+	
+	/**
+	 * Initialize a new `Emitter`.
+	 *
+	 * @api public
+	 */
+	
+	function Emitter(obj) {
+	  if (obj) return mixin(obj);
+	};
+	
+	/**
+	 * Mixin the emitter properties.
+	 *
+	 * @param {Object} obj
+	 * @return {Object}
+	 * @api private
+	 */
+	
+	function mixin(obj) {
+	  for (var key in Emitter.prototype) {
+	    obj[key] = Emitter.prototype[key];
+	  }
+	  return obj;
+	}
+	
+	/**
+	 * Listen on the given `event` with `fn`.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.on =
+	Emitter.prototype.addEventListener = function(event, fn){
+	  this._callbacks = this._callbacks || {};
+	  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+	    .push(fn);
+	  return this;
+	};
+	
+	/**
+	 * Adds an `event` listener that will be invoked a single
+	 * time then automatically removed.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.once = function(event, fn){
+	  function on() {
+	    this.off(event, on);
+	    fn.apply(this, arguments);
+	  }
+	
+	  on.fn = fn;
+	  this.on(event, on);
+	  return this;
+	};
+	
+	/**
+	 * Remove the given callback for `event` or all
+	 * registered callbacks.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+	
+	Emitter.prototype.off =
+	Emitter.prototype.removeListener =
+	Emitter.prototype.removeAllListeners =
+	Emitter.prototype.removeEventListener = function(event, fn){
+	  this._callbacks = this._callbacks || {};
+	
+	  // all
+	  if (0 == arguments.length) {
+	    this._callbacks = {};
+	    return this;
+	  }
+	
+	  // specific event
+	  var callbacks = this._callbacks['$' + event];
+	  if (!callbacks) return this;
+	
+	  // remove all handlers
+	  if (1 == arguments.length) {
+	    delete this._callbacks['$' + event];
+	    return this;
+	  }
+	
+	  // remove specific handler
+	  var cb;
+	  for (var i = 0; i < callbacks.length; i++) {
+	    cb = callbacks[i];
+	    if (cb === fn || cb.fn === fn) {
+	      callbacks.splice(i, 1);
+	      break;
+	    }
+	  }
+	  return this;
+	};
+	
+	/**
+	 * Emit `event` with the given args.
+	 *
+	 * @param {String} event
+	 * @param {Mixed} ...
+	 * @return {Emitter}
+	 */
+	
+	Emitter.prototype.emit = function(event){
+	  this._callbacks = this._callbacks || {};
+	  var args = [].slice.call(arguments, 1)
+	    , callbacks = this._callbacks['$' + event];
+	
+	  if (callbacks) {
+	    callbacks = callbacks.slice(0);
+	    for (var i = 0, len = callbacks.length; i < len; ++i) {
+	      callbacks[i].apply(this, args);
+	    }
+	  }
+	
+	  return this;
+	};
+	
+	/**
+	 * Return array of callbacks for `event`.
+	 *
+	 * @param {String} event
+	 * @return {Array}
+	 * @api public
+	 */
+	
+	Emitter.prototype.listeners = function(event){
+	  this._callbacks = this._callbacks || {};
+	  return this._callbacks['$' + event] || [];
+	};
+	
+	/**
+	 * Check if this emitter has `event` handlers.
+	 *
+	 * @param {String} event
+	 * @return {Boolean}
+	 * @api public
+	 */
+	
+	Emitter.prototype.hasListeners = function(event){
+	  return !! this.listeners(event).length;
+	};
+
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * Module dependencies.
+	 */
+	
+	var Emitter = __webpack_require__(31);
+	var clone = __webpack_require__(32);
+	var type = __webpack_require__(33);
+	var ease = __webpack_require__(34);
+	
+	/**
+	 * Expose `Tween`.
+	 */
+	
+	module.exports = Tween;
+	
+	/**
+	 * Initialize a new `Tween` with `obj`.
+	 *
+	 * @param {Object|Array} obj
+	 * @api public
+	 */
+	
+	function Tween(obj) {
+	  if (!(this instanceof Tween)) return new Tween(obj);
+	  this._from = obj;
+	  this.ease('linear');
+	  this.duration(500);
+	}
+	
+	/**
+	 * Mixin emitter.
+	 */
+	
+	Emitter(Tween.prototype);
+	
+	/**
+	 * Reset the tween.
+	 *
+	 * @api public
+	 */
+	
+	Tween.prototype.reset = function(){
+	  this.isArray = 'array' === type(this._from);
+	  this._curr = clone(this._from);
+	  this._done = false;
+	  this._start = Date.now();
+	  return this;
+	};
+	
+	/**
+	 * Tween to `obj` and reset internal state.
+	 *
+	 *    tween.to({ x: 50, y: 100 })
+	 *
+	 * @param {Object|Array} obj
+	 * @return {Tween} self
+	 * @api public
+	 */
+	
+	Tween.prototype.to = function(obj){
+	  this.reset();
+	  this._to = obj;
+	  return this;
+	};
+	
+	/**
+	 * Set duration to `ms` [500].
+	 *
+	 * @param {Number} ms
+	 * @return {Tween} self
+	 * @api public
+	 */
+	
+	Tween.prototype.duration = function(ms){
+	  this._duration = ms;
+	  return this;
+	};
+	
+	/**
+	 * Set easing function to `fn`.
+	 *
+	 *    tween.ease('in-out-sine')
+	 *
+	 * @param {String|Function} fn
+	 * @return {Tween}
+	 * @api public
+	 */
+	
+	Tween.prototype.ease = function(fn){
+	  fn = 'function' == typeof fn ? fn : ease[fn];
+	  if (!fn) throw new TypeError('invalid easing function');
+	  this._ease = fn;
+	  return this;
+	};
+	
+	/**
+	 * Stop the tween and immediately emit "stop" and "end".
+	 *
+	 * @return {Tween}
+	 * @api public
+	 */
+	
+	Tween.prototype.stop = function(){
+	  this.stopped = true;
+	  this._done = true;
+	  this.emit('stop');
+	  this.emit('end');
+	  return this;
+	};
+	
+	/**
+	 * Perform a step.
+	 *
+	 * @return {Tween} self
+	 * @api private
+	 */
+	
+	Tween.prototype.step = function(){
+	  if (this._done) return;
+	
+	  // duration
+	  var duration = this._duration;
+	  var now = Date.now();
+	  var delta = now - this._start;
+	  var done = delta >= duration;
+	
+	  // complete
+	  if (done) {
+	    this._from = this._to;
+	    this._update(this._to);
+	    this._done = true;
+	    this.emit('end');
+	    return this;
+	  }
+	
+	  // tween
+	  var from = this._from;
+	  var to = this._to;
+	  var curr = this._curr;
+	  var fn = this._ease;
+	  var p = (now - this._start) / duration;
+	  var n = fn(p);
+	
+	  // array
+	  if (this.isArray) {
+	    for (var i = 0; i < from.length; ++i) {
+	      curr[i] = from[i] + (to[i] - from[i]) * n;
+	    }
+	
+	    this._update(curr);
+	    return this;
+	  }
+	
+	  // objech
+	  for (var k in from) {
+	    curr[k] = from[k] + (to[k] - from[k]) * n;
+	  }
+	
+	  this._update(curr);
+	  return this;
+	};
+	
+	/**
+	 * Set update function to `fn` or
+	 * when no argument is given this performs
+	 * a "step".
+	 *
+	 * @param {Function} fn
+	 * @return {Tween} self
+	 * @api public
+	 */
+	
+	Tween.prototype.update = function(fn){
+	  if (0 == arguments.length) return this.step();
+	  this._update = fn;
+	  return this;
+	};
 
 /***/ },
 /* 31 */
@@ -2331,198 +2792,15 @@
 /* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	
-	/**
-	 * Module dependencies.
-	 */
-	
-	var Emitter = __webpack_require__(31);
-	var clone = __webpack_require__(33);
-	var type = __webpack_require__(34);
-	var ease = __webpack_require__(35);
-	
-	/**
-	 * Expose `Tween`.
-	 */
-	
-	module.exports = Tween;
-	
-	/**
-	 * Initialize a new `Tween` with `obj`.
-	 *
-	 * @param {Object|Array} obj
-	 * @api public
-	 */
-	
-	function Tween(obj) {
-	  if (!(this instanceof Tween)) return new Tween(obj);
-	  this._from = obj;
-	  this.ease('linear');
-	  this.duration(500);
-	}
-	
-	/**
-	 * Mixin emitter.
-	 */
-	
-	Emitter(Tween.prototype);
-	
-	/**
-	 * Reset the tween.
-	 *
-	 * @api public
-	 */
-	
-	Tween.prototype.reset = function(){
-	  this.isArray = 'array' === type(this._from);
-	  this._curr = clone(this._from);
-	  this._done = false;
-	  this._start = Date.now();
-	  return this;
-	};
-	
-	/**
-	 * Tween to `obj` and reset internal state.
-	 *
-	 *    tween.to({ x: 50, y: 100 })
-	 *
-	 * @param {Object|Array} obj
-	 * @return {Tween} self
-	 * @api public
-	 */
-	
-	Tween.prototype.to = function(obj){
-	  this.reset();
-	  this._to = obj;
-	  return this;
-	};
-	
-	/**
-	 * Set duration to `ms` [500].
-	 *
-	 * @param {Number} ms
-	 * @return {Tween} self
-	 * @api public
-	 */
-	
-	Tween.prototype.duration = function(ms){
-	  this._duration = ms;
-	  return this;
-	};
-	
-	/**
-	 * Set easing function to `fn`.
-	 *
-	 *    tween.ease('in-out-sine')
-	 *
-	 * @param {String|Function} fn
-	 * @return {Tween}
-	 * @api public
-	 */
-	
-	Tween.prototype.ease = function(fn){
-	  fn = 'function' == typeof fn ? fn : ease[fn];
-	  if (!fn) throw new TypeError('invalid easing function');
-	  this._ease = fn;
-	  return this;
-	};
-	
-	/**
-	 * Stop the tween and immediately emit "stop" and "end".
-	 *
-	 * @return {Tween}
-	 * @api public
-	 */
-	
-	Tween.prototype.stop = function(){
-	  this.stopped = true;
-	  this._done = true;
-	  this.emit('stop');
-	  this.emit('end');
-	  return this;
-	};
-	
-	/**
-	 * Perform a step.
-	 *
-	 * @return {Tween} self
-	 * @api private
-	 */
-	
-	Tween.prototype.step = function(){
-	  if (this._done) return;
-	
-	  // duration
-	  var duration = this._duration;
-	  var now = Date.now();
-	  var delta = now - this._start;
-	  var done = delta >= duration;
-	
-	  // complete
-	  if (done) {
-	    this._from = this._to;
-	    this._update(this._to);
-	    this._done = true;
-	    this.emit('end');
-	    return this;
-	  }
-	
-	  // tween
-	  var from = this._from;
-	  var to = this._to;
-	  var curr = this._curr;
-	  var fn = this._ease;
-	  var p = (now - this._start) / duration;
-	  var n = fn(p);
-	
-	  // array
-	  if (this.isArray) {
-	    for (var i = 0; i < from.length; ++i) {
-	      curr[i] = from[i] + (to[i] - from[i]) * n;
-	    }
-	
-	    this._update(curr);
-	    return this;
-	  }
-	
-	  // objech
-	  for (var k in from) {
-	    curr[k] = from[k] + (to[k] - from[k]) * n;
-	  }
-	
-	  this._update(curr);
-	  return this;
-	};
-	
-	/**
-	 * Set update function to `fn` or
-	 * when no argument is given this performs
-	 * a "step".
-	 *
-	 * @param {Function} fn
-	 * @return {Tween} self
-	 * @api public
-	 */
-	
-	Tween.prototype.update = function(fn){
-	  if (0 == arguments.length) return this.step();
-	  this._update = fn;
-	  return this;
-	};
-
-/***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/**
 	 * Module dependencies.
 	 */
 	
 	var type;
 	try {
-	  type = __webpack_require__(34);
+	  type = __webpack_require__(33);
 	} catch (_) {
-	  type = __webpack_require__(34);
+	  type = __webpack_require__(33);
 	}
 	
 	/**
@@ -2574,7 +2852,7 @@
 
 
 /***/ },
-/* 34 */
+/* 33 */
 /***/ function(module, exports) {
 
 	/**
@@ -2614,7 +2892,7 @@
 
 
 /***/ },
-/* 35 */
+/* 34 */
 /***/ function(module, exports) {
 
 	
@@ -2790,7 +3068,7 @@
 
 
 /***/ },
-/* 36 */
+/* 35 */
 /***/ function(module, exports) {
 
 	/**
@@ -2830,7 +3108,7 @@
 
 
 /***/ },
-/* 37 */
+/* 36 */
 /***/ function(module, exports) {
 
 	module.exports = throttle;
@@ -2868,10 +3146,80 @@
 
 
 /***/ },
-/* 38 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var detect = __webpack_require__(24)
+	
+	/**
+	 * Module dependencies.
+	 */
+	
+	var now = __webpack_require__(38);
+	
+	/**
+	 * Returns a function, that, as long as it continues to be invoked, will not
+	 * be triggered. The function will be called after it stops being called for
+	 * N milliseconds. If `immediate` is passed, trigger the function on the
+	 * leading edge, instead of the trailing.
+	 *
+	 * @source underscore.js
+	 * @see http://unscriptable.com/2009/03/20/debouncing-javascript-methods/
+	 * @param {Function} function to wrap
+	 * @param {Number} timeout in ms (`100`)
+	 * @param {Boolean} whether to execute at the beginning (`false`)
+	 * @api public
+	 */
+	
+	module.exports = function debounce(func, wait, immediate){
+	  var timeout, args, context, timestamp, result;
+	  if (null == wait) wait = 100;
+	
+	  function later() {
+	    var last = now() - timestamp;
+	
+	    if (last < wait && last > 0) {
+	      timeout = setTimeout(later, wait - last);
+	    } else {
+	      timeout = null;
+	      if (!immediate) {
+	        result = func.apply(context, args);
+	        if (!timeout) context = args = null;
+	      }
+	    }
+	  };
+	
+	  return function debounced() {
+	    context = this;
+	    args = arguments;
+	    timestamp = now();
+	    var callNow = immediate && !timeout;
+	    if (!timeout) timeout = setTimeout(later, wait);
+	    if (callNow) {
+	      result = func.apply(context, args);
+	      context = args = null;
+	    }
+	
+	    return result;
+	  };
+	};
+
+
+/***/ },
+/* 38 */
+/***/ function(module, exports) {
+
+	module.exports = Date.now || now
+	
+	function now() {
+	    return new Date().getTime()
+	}
+
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var detect = __webpack_require__(23)
 	var has3d = detect.has3d
 	var transform = detect.transform
 	
@@ -2897,7 +3245,7 @@
 	handlebar.prototype.resize = function (h) {
 	  var s = this.el.style
 	  s.height = h + 'px'
-	  s.backgroundColor = 'rgba(0,0,0,0.3)'
+	  s.backgroundColor = 'rgba(0,0,0,0.4)'
 	}
 	
 	/**
@@ -2928,19 +3276,152 @@
 
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Model = __webpack_require__(40)
-	var Reactive = __webpack_require__(43)
-	var domify = __webpack_require__(47)
-	var uid = __webpack_require__(51)
+	'use strict'
+	
+	var toPX = __webpack_require__(41)
+	
+	module.exports = mouseWheelListen
+	
+	function mouseWheelListen(element, callback, noScroll) {
+	  if(typeof element === 'function') {
+	    noScroll = !!callback
+	    callback = element
+	    element = window
+	  }
+	  var lineHeight = toPX('ex', element)
+	  var listener = function(ev) {
+	    if(noScroll) {
+	      ev.preventDefault()
+	    }
+	    var dx = ev.deltaX || 0
+	    var dy = ev.deltaY || 0
+	    var dz = ev.deltaZ || 0
+	    var mode = ev.deltaMode
+	    var scale = 1
+	    switch(mode) {
+	      case 1:
+	        scale = lineHeight
+	      break
+	      case 2:
+	        scale = window.innerHeight
+	      break
+	    }
+	    dx *= scale
+	    dy *= scale
+	    dz *= scale
+	    if(dx || dy || dz) {
+	      return callback(dx, dy, dz)
+	    }
+	  }
+	  element.addEventListener('wheel', listener)
+	  return listener
+	}
+
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict'
+	
+	var parseUnit = __webpack_require__(42)
+	
+	module.exports = toPX
+	
+	var PIXELS_PER_INCH = 96
+	
+	function getPropertyInPX(element, prop) {
+	  var parts = parseUnit(getComputedStyle(element).getPropertyValue(prop))
+	  return parts[0] * toPX(parts[1], element)
+	}
+	
+	//This brutal hack is needed
+	function getSizeBrutal(unit, element) {
+	  var testDIV = document.createElement('div')
+	  testDIV.style['font-size'] = '128' + unit
+	  element.appendChild(testDIV)
+	  var size = getPropertyInPX(testDIV, 'font-size') / 128
+	  element.removeChild(testDIV)
+	  return size
+	}
+	
+	function toPX(str, element) {
+	  element = element || document.body
+	  str = (str || 'px').trim().toLowerCase()
+	  if(element === window || element === document) {
+	    element = document.body 
+	  }
+	  switch(str) {
+	    case '%':  //Ambiguous, not sure if we should use width or height
+	      return element.clientHeight / 100.0
+	    case 'ch':
+	    case 'ex':
+	      return getSizeBrutal(str, element)
+	    case 'em':
+	      return getPropertyInPX(element, 'font-size')
+	    case 'rem':
+	      return getPropertyInPX(document.body, 'font-size')
+	    case 'vw':
+	      return window.innerWidth/100
+	    case 'vh':
+	      return window.innerHeight/100
+	    case 'vmin':
+	      return Math.min(window.innerWidth, window.innerHeight) / 100
+	    case 'vmax':
+	      return Math.max(window.innerWidth, window.innerHeight) / 100
+	    case 'in':
+	      return PIXELS_PER_INCH
+	    case 'cm':
+	      return PIXELS_PER_INCH / 2.54
+	    case 'mm':
+	      return PIXELS_PER_INCH / 25.4
+	    case 'pt':
+	      return PIXELS_PER_INCH / 72
+	    case 'pc':
+	      return PIXELS_PER_INCH / 6
+	  }
+	  return 1
+	}
+
+/***/ },
+/* 42 */
+/***/ function(module, exports) {
+
+	module.exports = function parseUnit(str, out) {
+	    if (!out)
+	        out = [ 0, '' ]
+	
+	    str = String(str)
+	    var num = parseFloat(str, 10)
+	    out[0] = num
+	    out[1] = str.match(/[\d.\-\+]*\s*(.*)/)[1] || ''
+	    return out
+	}
+
+/***/ },
+/* 43 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = 'ontouchstart' in global || (global.DocumentTouch && document instanceof DocumentTouch)
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Model = __webpack_require__(45)
+	var Reactive = __webpack_require__(48)
+	var domify = __webpack_require__(51)
+	var uid = __webpack_require__(55)
 	var body = document.body
 	
 	/**
 	 * Cteate ListRender
 	 *
-	 * `el` repeat element or (template string) for rendering
+	 * `template` repeat element or (template string) for rendering
 	 * `parentNode` element for list element to append to
 	 * `option` optional config obj
 	 * `option.delegate` delegate object for [reactive]
@@ -2951,14 +3432,14 @@
 	 * `option.perpage` the limit number for paging, should >= limit
 	 * `option.empty` String or Element rendered in parentNode when internal data list is empty
 	 *
-	 * @param  {Element}  el
+	 * @param  {Element}  template
 	 * @param {Element} parentNode
 	 * @param {Object} option
 	 * @api public
 	 */
-	function ListRender(el, parentNode, option) {
-	  if (!(this instanceof ListRender)) return new ListRender(el, parentNode, option)
-	  if (typeof el === 'string') el = domify(el)
+	function ListRender(template, parentNode, option) {
+	  if (!(this instanceof ListRender)) return new ListRender(template, parentNode, option)
+	  if (typeof template === 'string') template = domify(template)
 	  option = option || {}
 	  var empty = option.empty
 	  if (empty) {
@@ -2968,7 +3449,7 @@
 	  this.curpage = 0
 	  this.curr = 0
 	  this.parentNode = parentNode
-	  this.el = el
+	  this.template = template
 	  this.reactives = []
 	  this.data = []
 	  assign(this, option)
@@ -3232,14 +3713,13 @@
 	    var clz = this.model = createModelClass(Object.keys(obj))
 	    model = clz(obj)
 	  }
-	  this.primaryKey = obj.hasOwnProperty('id') ? 'id' :
-	                    obj.hasOwnProperty('_id') ? '_id': null
+	  this.primaryKey = obj.hasOwnProperty('id') ? 'id' : '_id'
 	  var opt = {
 	    delegate: this.delegate,
 	    bindings: this.bindings,
 	    filters: this.filters
 	  }
-	  return Reactive.generateConfig(this.el, model, opt)
+	  return Reactive.generateConfig(this.template, model, opt)
 	}
 	
 	/**
@@ -3258,7 +3738,6 @@
 	    self.curr = Math.max(0, self.curr - 1)
 	    reactive.remove()
 	    self.onchange(true)
-	    self.more(1)
 	  }
 	  if (orig && typeof orig !== 'function') throw new TypeError('remove is not a function on model')
 	  if (!orig) {
@@ -3283,14 +3762,12 @@
 	 * @api private
 	 */
 	ListRender.prototype.createReactive = function (obj) {
-	  var el = this.el.cloneNode(true)
+	  var el = this.template.cloneNode(true)
 	  var model = this.model(obj)
-	  var id
-	  if (this.primaryKey == null) {
-	    this.primaryKey = '_id'
-	    id = obj[this.primaryKey] = uid(10)
-	  } else {
-	    id = obj[this.primaryKey]
+	  var id = obj[this.primaryKey || '_id']
+	  if (!id) {
+	    id = uid(10)
+	    obj[this.primaryKey] = id
 	  }
 	  var opt = {
 	    delegate: this.delegate,
@@ -3324,6 +3801,27 @@
 	  if (this.filtered) {
 	    removeItem(this.filtered, pk, id)
 	  }
+	}
+	
+	/**
+	 * React model change
+	 *
+	 * @public
+	 * @param {Object} attrs plain object of model attrs
+	 * @returns {undefined}
+	 */
+	ListRender.prototype.react = function (attrs) {
+	  var pk = this.primaryKey || '_id'
+	  if (!attrs.hasOwnProperty(pk) || attrs[pk] == null) throw new Error('primaryKey [' + pk + '] not found on attrs')
+	  var id = attrs[pk]
+	  var model = this.model(attrs)
+	  for (var i = 0, l = this.reactives.length; i < l; i++) {
+	    var r = this.reactives[i]
+	    if (r.id == id) {
+	      r.bind(model)
+	    }
+	  }
+	  //nothing happen if not found
 	}
 	
 	function removeItem(arr, key, val) {
@@ -3446,7 +3944,7 @@
 
 
 /***/ },
-/* 40 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -3454,8 +3952,8 @@
 	 * Module dependencies.
 	 */
 	
-	var proto = __webpack_require__(41)
-	var util = __webpack_require__(42)
+	var proto = __webpack_require__(46)
+	var util = __webpack_require__(47)
 	var buildinRe = /^(\$stat|changed|emit|clean|on|off|attrs)$/
 	
 	/**
@@ -3486,7 +3984,7 @@
 	    if (!(this instanceof model)) return new model(attrs)
 	    attrs = attrs || {}
 	    this._callbacks = {}
-	    this.origAttrs = attrs
+	    this.origAttrs = Object.create(attrs)
 	    this.attrs = util.assign({}, attrs)
 	  }
 	
@@ -3578,7 +4076,7 @@
 
 
 /***/ },
-/* 41 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -3586,8 +4084,8 @@
 	 * Module dependencies.
 	 */
 	
-	var Emitter = __webpack_require__(31)
-	var util = __webpack_require__(42)
+	var Emitter = __webpack_require__(29)
+	var util = __webpack_require__(47)
 	
 	/**
 	 * Mixin emitter.
@@ -3670,7 +4168,7 @@
 
 
 /***/ },
-/* 42 */
+/* 47 */
 /***/ function(module, exports) {
 
 	/**
@@ -3709,22 +4207,16 @@
 
 
 /***/ },
-/* 43 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(44)
-
-
-/***/ },
-/* 44 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var util = __webpack_require__(45)
-	var domify = __webpack_require__(47)
-	var Binding = __webpack_require__(48)
-	var bindings = __webpack_require__(49)
-	var Emitter = __webpack_require__(31)
-	var filters = __webpack_require__(50)
+	var util = __webpack_require__(49)
+	var domify = __webpack_require__(51)
+	var Binding = __webpack_require__(52)
+	var bindings = __webpack_require__(53)
+	var Emitter = __webpack_require__(29)
+	var filters = __webpack_require__(54)
+	var event = __webpack_require__(15)
 	
 	/**
 	 * Reactive
@@ -3748,15 +4240,12 @@
 	  this.delegate = option.delegate || {}
 	  this.model = model
 	  this.el = el
-	  var config = option.config
+	  this.events = []
 	  if (option.nobind) return
-	  if (config == null) {
-	    // this.checkModel(model)
-	    config = this.config = this.generateConfig()
-	    this._bindConfig(config)
-	  } else {
-	    this._bindConfig(config)
-	  }
+	  var config = option.config
+	  this.config = config ? config : this.generateConfig()
+	  if (!model) throw new TypeError('model is requried for reactive')
+	  this._bindConfig()
 	}
 	
 	Emitter(Reactive.prototype)
@@ -3770,10 +4259,24 @@
 	  if (this._removed) return
 	  if (this.el.parentNode) this.el.parentNode.removeChild(this.el)
 	  this._removed = true
+	  this.unbindEvents()
 	  this.emit('remove')
 	  // The model may still using, not destroy it
 	  this.model = null
 	  this.off()
+	}
+	
+	/**
+	 * Unbind event handlers
+	 *
+	 * @public
+	 * @return {undefined}
+	 */
+	Reactive.prototype.unbindEvents = function () {
+	  this.events.forEach(function (o) {
+	    event.unbind(o.el, o.name, o.handler)
+	  })
+	  this.events = []
 	}
 	
 	/**
@@ -3782,13 +4285,13 @@
 	 * @param {Array} config
 	 * @api private
 	 */
-	Reactive.prototype._bindConfig = function (config) {
+	Reactive.prototype._bindConfig = function (noEvent) {
 	  var root = this.el
 	  var reactive = this
-	  config.forEach(function (o) {
+	  this.config.forEach(function (o) {
 	    var el = util.findElement(root, o.indexes)
 	    var binding = new Binding(reactive, el, o.bindings)
-	    binding.active(el)
+	    binding.active(el, noEvent)
 	    reactive.on('remove', function () {
 	      binding.remove()
 	    })
@@ -3883,14 +4386,15 @@
 	}
 	
 	/**
-	 * Bind a new model
+	 * Bind new model, exist event handlers would be removed
 	 *
 	 * @param {Object} model
 	 * @api public
 	 */
 	Reactive.prototype.bind = function (model) {
 	  this.model = model
-	  this._bindConfig(this.config)
+	  this.unbindEvents()
+	  this._bindConfig()
 	}
 	
 	/**
@@ -3900,6 +4404,7 @@
 	 * @param {Object} model
 	 * @param {Object} opt
 	 * @return {Array}
+	 * @deprecated
 	 * @api public
 	 */
 	Reactive.generateConfig = function (el, model, opt) {
@@ -3926,6 +4431,7 @@
 	 *
 	 * @param {String} name attribute name
 	 * @param {Function} fn
+	 * @deprecated
 	 * @api public
 	 */
 	Reactive.createBinding = function (name, fn) {
@@ -3945,6 +4451,7 @@
 	 *
 	 * @param {String} name
 	 * @param {Function} fn
+	 * @deprecated
 	 * @api public
 	 */
 	Reactive.createFilter = function (name, fn) {
@@ -3960,10 +4467,10 @@
 
 
 /***/ },
-/* 45 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var unique = __webpack_require__(46)
+	var unique = __webpack_require__(50)
 	var funcRe = /\([^\s]*\)$/
 	
 	/**
@@ -4228,7 +4735,7 @@
 
 
 /***/ },
-/* 46 */
+/* 50 */
 /***/ function(module, exports) {
 
 	/*!
@@ -4262,7 +4769,7 @@
 
 
 /***/ },
-/* 47 */
+/* 51 */
 /***/ function(module, exports) {
 
 	
@@ -4380,11 +4887,11 @@
 
 
 /***/ },
-/* 48 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var unique = __webpack_require__(46)
-	var util = __webpack_require__(45)
+	var unique = __webpack_require__(50)
+	var util = __webpack_require__(49)
 	
 	/**
 	 * Create binding instance with reactive and el
@@ -4548,11 +5055,11 @@
 
 
 /***/ },
-/* 49 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util = __webpack_require__(45)
-	var event = __webpack_require__(17)
+	var util = __webpack_require__(49)
+	var event = __webpack_require__(15)
 	
 	/**
 	 * Attributes supported.
@@ -4663,8 +5170,10 @@
 	        fn.call(context, e, model, el)
 	      }
 	      event.bind(el, name, handler)
-	      this._reactive.on('remove', function () {
-	        event.unbind(el, name, handler)
+	      this._reactive.events.push({
+	        el: el,
+	        name: name,
+	        handler: handler
 	      })
 	    }
 	  }
@@ -4724,7 +5233,7 @@
 
 
 /***/ },
-/* 50 */
+/* 54 */
 /***/ function(module, exports) {
 
 	/**
@@ -4816,7 +5325,7 @@
 
 
 /***/ },
-/* 51 */
+/* 55 */
 /***/ function(module, exports) {
 
 	/**
@@ -4839,20 +5348,23 @@
 
 
 /***/ },
-/* 52 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var domify = __webpack_require__(47)
-	var debounce = __webpack_require__(53)
-	var template = __webpack_require__(55)
-	var events = __webpack_require__(56)
+	var offset = __webpack_require__(57)
+	var ispinner = __webpack_require__(58)
+	var domify = __webpack_require__(51)
+	var debounce = __webpack_require__(37)
+	var template = __webpack_require__(62)
+	var events = __webpack_require__(15)
+	var Emitter = __webpack_require__(29)
 	
 	/**
 	 * Init more with element(for insertAfter), callback ,and scrollable
 	 *
-	 * @param  {Element}  el
-	 * @param  {Function}  fn
-	 * @param {Element} scrollable
+	 * @param {Function} fn
+	 * @param {Element}  el
+	 * @param {Element}  scrollable
 	 * @api public
 	 */
 	function More(el, fn, scrollable) {
@@ -4861,10 +5373,14 @@
 	  this.callback = fn
 	  this.div = domify(template)
 	  insertAfter(this.el, this.div)
-	  this.scrollable = scrollable = scrollable || el.parentNode
-	  this._onscroll = debounce(this.onscroll.bind(this), 100)
+	  this.spin = ispinner(this.div.querySelector('.more-refresh'), {width: '20px'})
+	  scrollable = scrollable || el.parentNode
+	  this.scrollable = scrollable
+	  this._onscroll = debounce(this.onscroll.bind(this), 10)
 	  events.bind(scrollable, 'scroll', this._onscroll)
 	}
+	
+	Emitter(More.prototype)
 	
 	/**
 	 * On scroll event handler
@@ -4874,13 +5390,16 @@
 	More.prototype.onscroll = function (e) {
 	  if (this.loading || this._disabled) return
 	  if (!check(this.scrollable) && e !== true) return
-	  this.div.style.display = 'block'
+	  this.div.style.visibility = 'visible'
 	  // var h = computedStyle(this.el, 'height')
 	  this.loading = true
 	  var self = this
 	  var cb = function () {
 	    self.loading = false
-	    self.div.style.display = 'none'
+	    self.div.style.visibility = 'hidden'
+	    setTimeout(function () {
+	      self.emit('load')
+	    }, 20)
 	  }
 	  var res = this.callback(cb)
 	  if (res && typeof res.then === 'function') {
@@ -4909,15 +5428,6 @@
 	More.prototype.load = function () {
 	  this.onscroll(true)
 	}
-	/**
-	 * Set the loading text
-	 *
-	 * @param {String} text
-	 * @api public
-	 */
-	More.prototype.text = function (text) {
-	  this.div.querySelector('.more-text').innerHTML = text
-	}
 	
 	/**
 	 * Remove the appended element and unbind event
@@ -4936,12 +5446,9 @@
 	function check(scrollable) {
 	  if (scrollable === window) {
 	    // viewport height
-	    var supportPageOffset = window.pageXOffset !== undefined
-	    var isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
 	    var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-	    var scrollY = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
-	    if (getDocHeight() - vh == scrollY) return true
-	  } else if (scrollable.scrollHeight - scrollable.scrollTop - scrollable.clientHeight < 1) {
+	    if (getDocHeight() - vh == offset.y) return true
+	  } else if (scrollable.scrollHeight - scrollable.scrollTop - scrollable.clientHeight < 20) {
 	    return true
 	  }
 	  return false
@@ -4965,263 +5472,73 @@
 
 
 /***/ },
-/* 53 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/**
-	 * Module dependencies.
-	 */
-	
-	var now = __webpack_require__(54);
-	
-	/**
-	 * Returns a function, that, as long as it continues to be invoked, will not
-	 * be triggered. The function will be called after it stops being called for
-	 * N milliseconds. If `immediate` is passed, trigger the function on the
-	 * leading edge, instead of the trailing.
-	 *
-	 * @source underscore.js
-	 * @see http://unscriptable.com/2009/03/20/debouncing-javascript-methods/
-	 * @param {Function} function to wrap
-	 * @param {Number} timeout in ms (`100`)
-	 * @param {Boolean} whether to execute at the beginning (`false`)
-	 * @api public
-	 */
-	
-	module.exports = function debounce(func, wait, immediate){
-	  var timeout, args, context, timestamp, result;
-	  if (null == wait) wait = 100;
-	
-	  function later() {
-	    var last = now() - timestamp;
-	
-	    if (last < wait && last > 0) {
-	      timeout = setTimeout(later, wait - last);
-	    } else {
-	      timeout = null;
-	      if (!immediate) {
-	        result = func.apply(context, args);
-	        if (!timeout) context = args = null;
-	      }
-	    }
-	  };
-	
-	  return function debounced() {
-	    context = this;
-	    args = arguments;
-	    timestamp = now();
-	    var callNow = immediate && !timeout;
-	    if (!timeout) timeout = setTimeout(later, wait);
-	    if (callNow) {
-	      result = func.apply(context, args);
-	      context = args = null;
-	    }
-	
-	    return result;
-	  };
-	};
-
-
-/***/ },
-/* 54 */
-/***/ function(module, exports) {
-
-	module.exports = Date.now || now
-	
-	function now() {
-	    return new Date().getTime()
-	}
-
-
-/***/ },
-/* 55 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"more-loading\">\n  <i class=\"more-refresh more-spin\"></i> <span class=\"more-text\">加载中...</span>\n</div>\n";
-
-/***/ },
-/* 56 */
-/***/ function(module, exports) {
-
-	var bind = window.addEventListener ? 'addEventListener' : 'attachEvent',
-	    unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent',
-	    prefix = bind !== 'addEventListener' ? 'on' : '';
-	
-	/**
-	 * Bind `el` event `type` to `fn`.
-	 *
-	 * @param {Element} el
-	 * @param {String} type
-	 * @param {Function} fn
-	 * @param {Boolean} capture
-	 * @return {Function}
-	 * @api public
-	 */
-	
-	exports.bind = function(el, type, fn, capture){
-	  el[bind](prefix + type, fn, capture || false);
-	  return fn;
-	};
-	
-	/**
-	 * Unbind `el` event `type`'s callback `fn`.
-	 *
-	 * @param {Element} el
-	 * @param {String} type
-	 * @param {Function} fn
-	 * @param {Boolean} capture
-	 * @return {Function}
-	 * @api public
-	 */
-	
-	exports.unbind = function(el, type, fn, capture){
-	  el[unbind](prefix + type, fn, capture || false);
-	  return fn;
-	};
-
-/***/ },
 /* 57 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var classes = __webpack_require__(58)
-	var domify = __webpack_require__(47)
-	var once = __webpack_require__(60)
-	var template = __webpack_require__(62)
+	var supportPageOffset = window.pageXOffset !== undefined
+	var isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat')
+	var body = document.body
 	
-	var LOADING_TEXT = '加载中...'
-	var PULL_TEXT = '下拉刷新'
-	var RELEASE_TEXT = '释放更新'
+	Object.defineProperty(exports, 'x', {
+	  get: function () {
+	    return supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : body.scrollLeft
+	  }
+	})
 	
-	function prepend(parentNode, node) {
-	  if (parentNode.firstChild) {
-	    parentNode.insertBefore(node, parentNode.firstChild)
-	  } else {
-	    parentNode.appendChild(node)
+	Object.defineProperty(exports, 'y', {
+	  get: function () {
+	    return supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : body.scrollTop
 	  }
-	}
-	
-	/**
-	 * `el` the scrollable element
-	 * `callback` is called when loading start, the first argument which is a callback function should be called after the dom prepend to the list.
-	 * `option` object could contain `PULL_TEXT` `RELEASE_TEXT` `LOADING_TEXT` and `timeout` for the request timeout in millisecond.
-	 * `option.template` contains a custom template(string or element) for the inserted element
-	 * `option.timeout` millisecond of request timeout, default `10000`
-	 *
-	 * @param  {Element}  el
-	 * @param  {Object} opt
-	 * @param  {Function}  fn
-	 * @api public
-	 */
-	module.exports = function PTR(el, opt, fn) {
-	  if (!(this instanceof PTR)) return new PTR(el, opt, fn)
-	  if (typeof opt === 'function') {
-	    fn = opt
-	    opt = {}
-	  }
-	  this.el = el
-	  this.LOADING_TEXT = opt.LOADING_TEXT || LOADING_TEXT
-	  this.PULL_TEXT = opt.PULL_TEXT || PULL_TEXT
-	  this.RELEASE_TEXT = opt.RELEASE_TEXT || RELEASE_TEXT
-	  this.timeout = opt.timeout || 10000
-	  var start
-	  var loading
-	  var box
-	  var tel = opt.template
-	  // custom template
-	  if (typeof tel === 'string') {
-	    box = domify(template)
-	  } else if (tel && tel.nodeType) {
-	    box = opt.template
-	  } else {
-	    box = domify(template)
-	  }
-	  var first = el.firstElementChild
-	  if (first) {
-	    prepend(first, box)
-	  } else {
-	    prepend(el, box)
-	  }
-	  var imgEl = box.querySelector('.ptr_image')
-	  var textEl = box.querySelector('.ptr_text')
-	  var self = this
-	  function onscroll() {
-	    if (loading) return
-	    var top = el.scrollTop
-	    if (top < 0 && top >= - 40) {
-	      textEl.textContent = self.PULL_TEXT
-	    }
-	    if (top < -40) {
-	      classes(imgEl).add('ptr_rotate')
-	      textEl.textContent = self.RELEASE_TEXT
-	      start = true
-	    } else {
-	      classes(imgEl).remove('ptr_rotate')
-	      start = false
-	    }
-	  }
-	  el.addEventListener('scroll', onscroll, false)
-	
-	  function callback() {
-	    el.scrollTop = 0
-	    loading = false
-	    textEl.textContent = self.PULL_TEXT
-	    imgEl.className = 'ptr_image'
-	  }
-	
-	  /**
-	   * Refresh for more data
-	   *
-	   * @param  {Event}  event
-	   * @api public
-	   */
-	  var refresh = this.refresh = function (e) {
-	      if (e) e.stopImmediatePropagation()
-	      el.scrollTop = -40
-	      imgEl.className += ' ptr_loading'
-	      textEl.textContent = self.LOADING_TEXT
-	      loading = true
-	      var timeout = setTimeout(callback, self.timeout)
-	      var cb = once(function () {
-	        clearTimeout(timeout)
-	        callback()
-	      })
-	      var res = fn(cb)
-	      if (res && typeof res.then === 'function') {
-	        res.then(cb, cb)
-	      }
-	  }
-	
-	  var end = function (e) {
-	    if (start) {
-	      refresh(e)
-	    }
-	    start = false
-	  }
-	  document.addEventListener('touchend', end)
-	
-	  /**
-	   * Unbind event listener and remove inserted element
-	   *
-	   * @return {undefined}
-	   * @api public
-	   */
-	  this.unbind = function () {
-	    el.removeEventListener('scroll', onscroll)
-	    document.removeEventListener('touchend', end)
-	  }
-	}
+	})
 
 
 /***/ },
 /* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var domify = __webpack_require__(51)
+	var template = __webpack_require__(59)
+	var classes = __webpack_require__(60)
+	
+	module.exports = function (parent, opt) {
+	  var el = domify(template)
+	  opt = opt || {}
+	  if (!opt.white) {
+	    classes(el).add('ispinner-gray')
+	  } else {
+	    classes(el).add('ispinner-white')
+	  }
+	  if (opt.width) {
+	    el.style.width = opt.width
+	  } else {
+	    el.style.width =  parent.getBoundingClientRect().width + 'px'
+	  }
+	  el.style.height = el.style.width
+	  parent.appendChild(el)
+	  return el
+	}
+	
+
+
+/***/ },
+/* 59 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"ispinner ispinner-animating\">\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n  <div class=\"ispinner-blade\"></div>\n</div>\n";
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/**
 	 * Module dependencies.
 	 */
 	
-	var index = __webpack_require__(59);
+	try {
+	  var index = __webpack_require__(61);
+	} catch (err) {
+	  var index = __webpack_require__(61);
+	}
 	
 	/**
 	 * Whitespace regexp.
@@ -5407,7 +5724,7 @@
 
 
 /***/ },
-/* 59 */
+/* 61 */
 /***/ function(module, exports) {
 
 	module.exports = function(arr, obj){
@@ -5419,10 +5736,137 @@
 	};
 
 /***/ },
-/* 60 */
+/* 62 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"more-loading\">\n  <i class=\"more-refresh\"></i>\n</div>\n";
+
+/***/ },
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var wrappy = __webpack_require__(61)
+	var classes = __webpack_require__(60)
+	var domify = __webpack_require__(51)
+	var once = __webpack_require__(64)
+	var template = __webpack_require__(66)
+	
+	function prepend(parentNode, node) {
+	  if (parentNode.firstChild) {
+	    parentNode.insertBefore(node, parentNode.firstChild)
+	  } else {
+	    parentNode.appendChild(node)
+	  }
+	}
+	
+	/**
+	 * `el` the scrollable element
+	 * `callback` is called when loading start, the first argument which is a callback function should be called after the dom prepend to the list.
+	 * `option.template` contains a custom template(string or element) for the inserted element
+	 * `option.timeout` millisecond of request timeout, default `10000`
+	 *
+	 * @param  {Element}  el
+	 * @param  {Object} opt
+	 * @param  {Function}  fn
+	 * @api public
+	 */
+	module.exports = function PTR(el, opt, fn) {
+	  if (!(this instanceof PTR)) return new PTR(el, opt, fn)
+	  if (typeof opt === 'function') {
+	    fn = opt
+	    opt = {}
+	  }
+	  this.el = el
+	  this.timeout = opt.timeout || 10000
+	  var start
+	  var loading
+	  var box
+	  var tel = opt.template
+	  // custom template
+	  if (typeof tel === 'string') {
+	    box = domify(template)
+	  } else if (tel && tel.nodeType) {
+	    box = opt.template
+	  } else {
+	    box = domify(template)
+	  }
+	  var first = el.firstElementChild
+	  if (first) {
+	    prepend(first, box)
+	  } else {
+	    prepend(el, box)
+	  }
+	  var imgEl = box.querySelector('.ptr_image')
+	  var textEl = box.querySelector('.ptr_text')
+	  var self = this
+	  function onscroll() {
+	    if (loading) return
+	    var top = el.scrollTop
+	    if (top < 0 && top >= - 40) {
+	    }
+	    if (top < -40) {
+	      classes(imgEl).add('ptr_rotate')
+	      start = true
+	    } else {
+	      classes(imgEl).remove('ptr_rotate')
+	      start = false
+	    }
+	  }
+	  el.addEventListener('scroll', onscroll, false)
+	
+	  function callback() {
+	    el.scrollTop = 0
+	    loading = false
+	    imgEl.className = 'ptr_image'
+	  }
+	
+	  /**
+	   * Refresh for more data
+	   *
+	   * @param  {Event}  event
+	   * @api public
+	   */
+	  var refresh = this.refresh = function (e) {
+	      if (e) e.stopImmediatePropagation()
+	      el.scrollTop = -40
+	      imgEl.className += ' ptr_loading'
+	      loading = true
+	      var timeout = setTimeout(callback, self.timeout)
+	      var cb = once(function () {
+	        clearTimeout(timeout)
+	        callback()
+	      })
+	      var res = fn(cb)
+	      if (res && typeof res.then === 'function') {
+	        res.then(cb, cb)
+	      }
+	  }
+	
+	  var end = function (e) {
+	    if (start) {
+	      refresh(e)
+	    }
+	    start = false
+	  }
+	  document.addEventListener('touchend', end)
+	
+	  /**
+	   * Unbind event listener and remove inserted element
+	   *
+	   * @return {undefined}
+	   * @api public
+	   */
+	  this.unbind = function () {
+	    el.removeEventListener('scroll', onscroll)
+	    document.removeEventListener('touchend', end)
+	  }
+	}
+
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var wrappy = __webpack_require__(65)
 	module.exports = wrappy(once)
 	
 	once.proto = once(function () {
@@ -5446,7 +5890,7 @@
 
 
 /***/ },
-/* 61 */
+/* 65 */
 /***/ function(module, exports) {
 
 	// Returns a wrapper function that returns a wrapped callback
@@ -5485,13 +5929,13 @@
 
 
 /***/ },
-/* 62 */
+/* 66 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"ptr_box\">\n  <div class=\"ptr_container\">\n    <div class=\"ptr_image\"></div>\n    <div class=\"ptr_text\">下拉刷新</div>\n  </div>\n</div>\n";
+	module.exports = "<div class=\"ptr_box\">\n  <div class=\"ptr_container\">\n    <div class=\"ptr_image\"></div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 63 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = [
