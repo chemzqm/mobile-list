@@ -324,7 +324,7 @@ describe('.iscroll()', function () {
   it('should able to scroll iscroll', function (done) {
     var list = new List(template, scrollable)
     scrollable.style.overflow = 'hidden'
-    list.iscroll({handler: true})
+    list.iscroll({handlebar: true, autorefresh: false})
     list.setData(USERS)
     list.scrollTo(100)
     var ul = scrollable.querySelector('ul')
@@ -334,7 +334,7 @@ describe('.iscroll()', function () {
       var r = scrollable.getBoundingClientRect()
       assert.equal(r.top - ur.top, 100)
       done()
-    }, 200)
+    }, 500)
   })
 
   it('should refresh iscroll on data change', function (done) {
